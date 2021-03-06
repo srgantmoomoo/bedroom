@@ -3,12 +3,12 @@
 bedroom is a latest version fabric base for minecraft clients. <br>
 
 **plans for bedroom 1**
-✔ events
-✔ module system
-✔ setting system
-✔ configs
-✔ ui stuff
-- command system
+✔ events <br>
+✔ module system <br>
+✔ setting system <br>
+✔ configs <br>
+✔ ui stuff <br>
+- command system <br>
 
 **how to use** <br>
 *for eclipse* <br>
