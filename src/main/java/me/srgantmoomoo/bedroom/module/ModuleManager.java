@@ -5,17 +5,12 @@ import java.util.List;
 
 import org.lwjgl.glfw.GLFW;
 
-import com.google.common.eventbus.Subscribe;
-
 import me.srgantmoomoo.bedroom.Main;
-import me.srgantmoomoo.bedroom.api.event.events.EventDrawOverlay;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.module.Module.Category;
-import me.srgantmoomoo.bedroom.module.modules.movement.*;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.util.InputUtil;
 
 public class ModuleManager {
@@ -24,8 +19,9 @@ public class ModuleManager {
 	
 	public ModuleManager() {
 		Main.EVENTBUS.subscribe(listener);
+		
 		modules = new ArrayList<>();
-		ModuleManager.modules.add(new Sprint());
+		//ModuleManager.modules.add(new Module());
 	}
 	
 	public static boolean isModuleEnabled(String name){

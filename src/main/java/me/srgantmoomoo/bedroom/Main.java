@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import me.srgantmoomoo.bedroom.api.config.SaveLoad;
-import me.srgantmoomoo.bedroom.api.event.Event;
 import me.srgantmoomoo.bedroom.api.event.EventProcessor;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 import me.srgantmoomoo.bedroom.setting.SettingManager;
@@ -12,7 +11,6 @@ import me.srgantmoomoo.bedroom.ui.UI;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.MinecraftClient;
 
 public class Main implements ModInitializer {
 	
@@ -22,7 +20,6 @@ public class Main implements ModInitializer {
 	public static final String version = "0.0.1";
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
-	private MinecraftClient mc = MinecraftClient.getInstance();
 	public static EventBus EVENTBUS = new EventManager();
 	
 	public static UI ui;
