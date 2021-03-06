@@ -2,7 +2,7 @@
                                                                  
 bedroom is a latest version fabric base for minecraft clients. <br>
 
-**plans for bedroom 1**
+**plans for bedroom 1** <br>
 ✔ events <br>
 ✔ module system <br>
 ✔ setting system <br>
