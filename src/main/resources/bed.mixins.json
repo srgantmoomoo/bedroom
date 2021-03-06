@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.srgantmoomoo.bedroom.api.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+	"MixinGameRenderer",
+	"MixinIngameHud",
+	"MixinKeyboard"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
