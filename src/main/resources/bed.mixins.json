@@ -8,7 +8,8 @@
   "client": [
 	"MixinGameRenderer",
 	"MixinIngameHud",
-	"MixinKeyboard"
+	"MixinKeyboard",
+	"MixinClientConnection"
   ],
   "injectors": {
     "defaultRequire": 1

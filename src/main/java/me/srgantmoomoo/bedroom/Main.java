@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import me.srgantmoomoo.bedroom.api.config.SaveLoad;
 import me.srgantmoomoo.bedroom.api.event.EventProcessor;
+import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 import me.srgantmoomoo.bedroom.setting.SettingManager;
 import me.srgantmoomoo.bedroom.ui.UI;
@@ -27,6 +28,7 @@ public class Main implements ModInitializer {
 	public static SettingManager settingManager;
 	public static SaveLoad saveLoad;
 	public static EventProcessor eventProcessor;
+	public static CommandManager commandManager;
 	
 	public Object syncronize = new Object();
 	public void printLog(String text) {
@@ -54,6 +56,9 @@ public class Main implements ModInitializer {
 		printLog("event system initialized.");
 		
 		ui = new UI();
+		
+		commandManager = new CommandManager();
+		printLog("command system initialized.");
 		
 		moduleManager = new ModuleManager();
 		printLog("module system initialized.");
