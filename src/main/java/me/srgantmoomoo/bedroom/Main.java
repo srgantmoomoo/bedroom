@@ -17,8 +17,8 @@ public class Main implements ModInitializer {
 	
 	public static final String modid = "bed";
 	public static final String name = "bedroom";
-	public static final String nameCondensed = "bedroom";
-	public static final String version = "0.0.1";
+	public static final String nameCondensed = "bedroom"; // this is for if there are spaces in ur mod name... "mod name" -> "mod-name".
+	public static final String version = "1";
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
