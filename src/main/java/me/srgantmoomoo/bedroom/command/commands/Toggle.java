@@ -15,10 +15,12 @@ public class Toggle extends Command {
 	@Override
 	public void onCommand(String[] args, String command) {
 		if(args.length > 0) {
-			String moduleName = args[0];
+			String moduleName = args[0]; 
 			boolean moduleFound = false;
 			for(Module module : ModuleManager.modules) {
-				if(module.name.equalsIgnoreCase(moduleName)) {
+				String moduleIn = module.name;
+				moduleIn = moduleIn.replaceAll("\\s", "");
+				if(moduleIn.equalsIgnoreCase(moduleName)) {
 					module.toggle();
 					ModuleManager.addChatMessage(module.name + " " + (module.isEnabled() ? TextFormatting.GREEN + "enabled" + TextFormatting.GRAY + "." : TextFormatting.RED + "disabled" + TextFormatting.GRAY + "."));
 					moduleFound = true;

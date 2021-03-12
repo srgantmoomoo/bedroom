@@ -69,7 +69,7 @@ public class ModuleManager {
 	public static void addChatMessage(String message) {
 		Text textComponentString = new LiteralText(message);
 		message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + message;
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(TextFormatting.AQUA + "@" + TextFormatting.RESET + Main.name + " ").append(textComponentString));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(TextFormatting.ITALIC + "" + TextFormatting.AQUA + "@" + TextFormatting.RESET + Main.name + " ").append(textComponentString));
 		
 		
 	}
