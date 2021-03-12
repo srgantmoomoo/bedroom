@@ -66,6 +66,10 @@ public class CommandManager {
 
 	public static void setCommandPrefix(String pre) {
         prefix = pre;
+        
+        if(Main.saveLoad != null) {
+			Main.saveLoad.save();
+		}
     }
 	
 }

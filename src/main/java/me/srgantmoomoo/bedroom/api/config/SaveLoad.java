@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 import me.srgantmoomoo.bedroom.setting.Setting;
@@ -50,24 +51,27 @@ public class SaveLoad {
 		}
 		
 		for(Module mod : ModuleManager.modules) {
-		for(Setting setting : mod.settings) {
-			
-			if(setting instanceof BooleanSetting) {
-				BooleanSetting bool = (BooleanSetting) setting;
-				toSave.add("SET:" + mod.getName() + ":" + setting.name + ":" + bool.isEnabled());
+			for(Setting setting : mod.settings) {
+				
+				if(setting instanceof BooleanSetting) {
+					BooleanSetting bool = (BooleanSetting) setting;
+					toSave.add("SET:" + mod.getName() + ":" + setting.name + ":" + bool.isEnabled());
 				}
-			
-			if(setting instanceof NumberSetting) {
-				NumberSetting numb = (NumberSetting) setting;
-				toSave.add("SET:" + mod.getName() + ":" + setting.name + ":" + numb.getValue());
-			}
-			
-			if(setting instanceof ModeSetting) {
-				ModeSetting mode = (ModeSetting) setting;
-				toSave.add("SET:" + mod.getName() + ":" + setting.name + ":" + mode.getMode());
-			}
+				
+				if(setting instanceof NumberSetting) {
+					NumberSetting numb = (NumberSetting) setting;
+					toSave.add("SET:" + mod.getName() + ":" + setting.name + ":" + numb.getValue());
+				}
+				
+				if(setting instanceof ModeSetting) {
+					ModeSetting mode = (ModeSetting) setting;
+					toSave.add("SET:" + mod.getName() + ":" + setting.name + ":" + mode.getMode());
+				}
 			}
 		} 
+		
+		// command prefix
+		toSave.add("COMMANDPREFIX:" + CommandManager.prefix);
 		
 		try {
 			PrintWriter pw = new PrintWriter(this.dataFile);
@@ -123,6 +127,8 @@ public class SaveLoad {
 						}
 					}
 				}
+			}else if(s.toLowerCase().startsWith("commandprefix:")) {
+				CommandManager.setCommandPrefix(args[1]);
 			}
 		}
 	}

@@ -52,10 +52,7 @@ public class Main implements ModInitializer {
 		// inits
 		
 		eventProcessor = new EventProcessor();
-		Main.EVENTBUS.subscribe(eventProcessor);
 		printLog("event system initialized.");
-		
-		ui = new UI();
 		
 		commandManager = new CommandManager();
 		printLog("command system initialized.");
@@ -65,6 +62,10 @@ public class Main implements ModInitializer {
 		
 		settingManager = new SettingManager();
 		printLog("setting system initialized.");
+		
+
+		ui = new UI();
+		printLog("ui initialized.");
 		
 		saveLoad = new SaveLoad();
 		printLog("config initialized.");
