@@ -26,9 +26,9 @@ public class ModuleManager {
 		Main.EVENTBUS.subscribe(listener);
 		
 		modules = new ArrayList<>();
-		ModuleManager.modules.add(new ExamplePlayerModule());
-		ModuleManager.modules.add(new ExampleRenderModule());
-		ModuleManager.modules.add(new Sprint());
+		
+		modules.add(new ExamplePlayerModule());
+		modules.add(new ExampleRenderModule());
 	}
 	
 	public static boolean isModuleEnabled(String name){
@@ -69,7 +69,7 @@ public class ModuleManager {
 	public static void addChatMessage(String message) {
 		Text textComponentString = new LiteralText(message);
 		message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + message;
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(TextFormatting.ITALIC + "" + TextFormatting.AQUA + "@" + TextFormatting.RESET + Main.name + " ").append(textComponentString));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText("" + TextFormatting.AQUA + TextFormatting.ITALIC + "@" + TextFormatting.RESET + TextFormatting.ITALIC + Main.name + " ").append(textComponentString));
 		
 		
 	}
