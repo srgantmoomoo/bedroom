@@ -1,6 +1,8 @@
-package me.srgantmoomoo.bedroom.command;
+package me.srgantmoomoo.bedroom.command.commands;
 
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
+import me.srgantmoomoo.bedroom.command.Command;
+import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 

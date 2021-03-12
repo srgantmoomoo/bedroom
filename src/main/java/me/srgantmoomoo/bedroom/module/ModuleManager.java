@@ -9,10 +9,11 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.srgantmoomoo.bedroom.module.Module.Category;
+import me.srgantmoomoo.bedroom.module.modules.player.*;
+import me.srgantmoomoo.bedroom.module.modules.render.*;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.RenderPhase.Texturing;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -25,7 +26,9 @@ public class ModuleManager {
 		Main.EVENTBUS.subscribe(listener);
 		
 		modules = new ArrayList<>();
-		//ModuleManager.modules.add(new Module());
+		ModuleManager.modules.add(new ExamplePlayerModule());
+		ModuleManager.modules.add(new ExampleRenderModule());
+		ModuleManager.modules.add(new Sprint());
 	}
 	
 	public static boolean isModuleEnabled(String name){
@@ -66,7 +69,7 @@ public class ModuleManager {
 	public static void addChatMessage(String message) {
 		Text textComponentString = new LiteralText(message);
 		message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + message;
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText("hi").append(textComponentString));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(TextFormatting.AQUA + "@" + TextFormatting.RESET + Main.name + " ").append(textComponentString));
 		
 		
 	}

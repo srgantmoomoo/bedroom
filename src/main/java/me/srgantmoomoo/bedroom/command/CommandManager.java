@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
+import me.srgantmoomoo.bedroom.command.commands.Toggle;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 
 public class CommandManager {
@@ -22,6 +23,11 @@ public class CommandManager {
 		commands.add(new Toggle());
 	}
 	
+	public static void readPrefix() {
+		if (prefix != null)
+			prefix = prefix;
+	}
+	
 	public static void callCommandReturn(String input) {
         String message = input;
         
@@ -34,9 +40,9 @@ public class CommandManager {
         	String commandName = message.split(" ")[0];
         	for(Command c : commands) {
         		if(c.aliases.contains(commandName) || c.name.equalsIgnoreCase(commandName)) {
-        		c.onCommand(Arrays.copyOfRange(message.split(" "), 1, message.split(" ").length), message);
-        		commandFound = true;
-        		break;
+	        		c.onCommand(Arrays.copyOfRange(message.split(" "), 1, message.split(" ").length), message);
+	        		commandFound = true;
+	        		break;
         		}
         	}
         	if(!commandFound) {
