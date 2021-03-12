@@ -8,7 +8,7 @@ bedroom is a latest version fabric base for minecraft clients. <br>
 ✔ setting system <br>
 ✔ configs <br>
 ✔ ui stuff <br>
-- command system <br>
+✔ command system <br>
 
 **how to use** <br>
 *for eclipse* <br>
