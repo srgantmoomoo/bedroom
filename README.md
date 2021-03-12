@@ -9,6 +9,15 @@ bedroom is a latest version fabric base for minecraft clients. <br>
 ✔ configs <br>
 ✔ ui stuff <br>
 ✔ command system <br>
+<br>
+*before releasing -* <br>
+- finish up commands (grey text & open command on prefix key pressed).
+- add araylist to ui.
+<br>
+**plans for bedroom 2** <br>
+- color system <br>
+- font renderer <br>
+- some sort of clickgui or tabgui <br>
 
 **how to use** <br>
 *for eclipse* <br>
