@@ -9,6 +9,9 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.srgantmoomoo.bedroom.module.Module.Category;
+import me.srgantmoomoo.bedroom.module.modules.combat.*;
+import me.srgantmoomoo.bedroom.module.modules.miscellaneous.*;
+import me.srgantmoomoo.bedroom.module.modules.movement.*;
 import me.srgantmoomoo.bedroom.module.modules.player.*;
 import me.srgantmoomoo.bedroom.module.modules.render.*;
 import me.zero.alpine.listener.EventHandler;
@@ -26,9 +29,11 @@ public class ModuleManager {
 		Main.EVENTBUS.subscribe(listener);
 		
 		modules = new ArrayList<>();
-		
 		modules.add(new ExamplePlayerModule());
 		modules.add(new ExampleRenderModule());
+		modules.add(new ExampleCombatModule());
+		modules.add(new ExampleMovementModule());
+		modules.add(new ExmapleMiscellaneousModule());
 	}
 	
 	public static boolean isModuleEnabled(String name){
@@ -69,7 +74,7 @@ public class ModuleManager {
 	public static void addChatMessage(String message) {
 		Text textComponentString = new LiteralText(message);
 		message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + message;
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText("" + TextFormatting.AQUA + TextFormatting.ITALIC + "@" + TextFormatting.RESET + TextFormatting.ITALIC + Main.name + " ").append(textComponentString));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText("" + TextFormatting.AQUA + TextFormatting.ITALIC + "@" + TextFormatting.RESET + TextFormatting.ITALIC + Main.name + " " + TextFormatting.GRAY).append(textComponentString));
 		
 		
 	}

@@ -38,7 +38,7 @@ public class Module {
 	}
 	
 	public enum Category {
-		PLAYER("player"), RENDER("render");
+		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous");
 		
 		public String name;
 		public int moduleIndex;

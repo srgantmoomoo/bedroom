@@ -21,6 +21,8 @@ public class Help extends Command {
 		
 		ModuleManager.addChatMessage("toggle - " + TextFormatting.ITALIC + "toggles modules on and off" + " -> "  + CommandManager.prefix + "toggle <module>");
 		
+		ModuleManager.addChatMessage("modulelist - " + TextFormatting.ITALIC + "shows all of the modules in the client" + " -> " + CommandManager.prefix + "modulelist");
+		
 	}
 
 }

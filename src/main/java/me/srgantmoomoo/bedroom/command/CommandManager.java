@@ -22,7 +22,7 @@ public class CommandManager {
 	public boolean commandFound = false;
 	
 	public CommandManager() {
-		//Main.EVENTBUS.subscribe(listener);
+		Main.EVENTBUS.subscribe(listener);
 		register();
 	}
 	
@@ -30,6 +30,7 @@ public class CommandManager {
 		commands.add(new Toggle());
 		commands.add(new Help());
 		commands.add(new Prefix());
+		commands.add(new ModuleList());
 	}
 	
 	public static void callCommandReturn(String input) {
@@ -55,14 +56,13 @@ public class CommandManager {
         }
     }
 	
-	/*@EventHandler
+	@EventHandler
 	private final Listener<EventKeyPress> listener = new Listener<>(e -> {
-		if(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), prefix))
+		if(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), prefix.charAt(0)))
 		if (prefix.length() == 1) {
-                MinecraftClient.getInstance().openScreen(new ChatScreen(prefix));
-                //((ChatScreen) MinecraftClient.getInstance().currentScreen).inputeField.setText(prefix);
+                MinecraftClient.getInstance().openScreen(new ChatScreen(""));
             }
-	});*/
+	});
 
 	public static void setCommandPrefix(String pre) {
         prefix = pre;
