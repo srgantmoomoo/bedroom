@@ -2,19 +2,18 @@
                                                                  
 bedroom is a latest version fabric base for minecraft clients. <br>
 
-**plans for bedroom 1** <br>
+**plans for bedroom 2** <br>
+- color system <br>
+- font renderer <br>
+<br>
+**bedroom 1** <br>
 ✔ events <br>
 ✔ module system <br>
 ✔ setting system <br>
 ✔ configs <br>
 ✔ ui stuff <br>
 ✔ command system <br>
-
-**plans for bedroom 2** <br>
-- color system <br>
-- font renderer <br>
 <br>
-
 **how to use** <br>
 *for eclipse* <br>
 - drag .zip release to a new folder
