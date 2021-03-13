@@ -62,7 +62,6 @@ public class Main implements ModInitializer {
 		
 		settingManager = new SettingManager();
 		printLog("setting system initialized.");
-		
 
 		ui = new UI();
 		printLog("ui initialized.");

@@ -29,14 +29,14 @@ public class ModuleManager {
 		Main.EVENTBUS.subscribe(listener);
 		
 		modules = new ArrayList<>();
-		modules.add(new ExamplePlayerModule());
-		modules.add(new ExampleRenderModule());
-		modules.add(new ExampleCombatModule());
-		modules.add(new ExampleMovementModule());
-		modules.add(new ExmapleMiscellaneousModule());
+		ModuleManager.modules.add(new ExamplePlayerModule());
+		ModuleManager.modules.add(new ExampleRenderModule());
+		ModuleManager.modules.add(new ExampleCombatModule());
+		ModuleManager.modules.add(new ExampleMovementModule());
+		ModuleManager.modules.add(new ExampleMiscellaneousModule());
 	}
 	
-	public static boolean isModuleEnabled(String name){
+	public static boolean isModuleEnabled(String name) {
 		Module m = modules.stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
 		return m.isEnabled();
 	}
@@ -66,7 +66,7 @@ public class ModuleManager {
 		return modules;
 	}
 	
-	public static Module getModuleByName(String name){
+	public static Module getModuleByName(String name) {
 		Module m = modules.stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
 		return m;
 	}
