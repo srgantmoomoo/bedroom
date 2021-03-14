@@ -5,6 +5,7 @@ bedroom is a latest version fabric base for minecraft clients. <br>
 **plans for bedroom 2** <br>
 - color system <br>
 - font renderer <br>
+*im not sure if i wanna do any ui stuff yet, i have some plans for that in the future but if anyone has some ideas, lmk :)* <br>
 <br>
 
 **bedroom 1** <br>
