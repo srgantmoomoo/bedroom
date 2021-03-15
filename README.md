@@ -2,7 +2,7 @@
                                                                  
 bedroom is a latest version fabric base for minecraft clients. <br>
 <br>
-bedroom is intended for use as a base for latest version minecraft fabric clients, it can serve as a good starting tool and can have different aspects of it changed or added onto. like adding a more in depth command system, or adding some sort of your own ui elements, and of course you own modules.
+bedroom is intended for use as a latest version fabric base for minecraft clients, it can serve as a good starting tool and can have different aspects of it changed or added onto, like adding a more in depth command system, or adding some sort of your own ui elements, and of course you own modules.
 
 **plans for bedroom 2** <br>
 - color system <br>
