@@ -4,7 +4,7 @@ bedroom is a latest version fabric base for minecraft clients. <br>
 <br>
 bedroom is intended for use as a latest version fabric base for minecraft anarchy clients, it can serve as a good starting tool and can have different aspects of it changed or added onto, like adding a more in depth command system, or adding some sort of your own ui elements, and of course you own modules.
 <br>
-<br> This is not a cheat. it's intent is for minecraft anarchy clients, and it's use for otherwise is redundant. either way bedroom itself is not a cheat, nor are it's intended targets. also, due to previous events, i would like to remind u that fabric is "free to use for everyone. No exceptions." thank you :)
+<br> this is not a cheat. it's intent is for minecraft anarchy clients, and it's use for otherwise is redundant. either way bedroom itself is not a cheat, nor are it's intended targets. also, due to previous events, i would like to remind u that fabric is "free to use for everyone. No exceptions." thank you :)
 <br>
 
 **plans for bedroom 2** <br>
