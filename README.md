@@ -46,6 +46,10 @@ you may also add different inits to the client under `// (your clients name)'s i
 
 ***command system*** <br>
 as for all of the systems here, you can use the current commands as examples. <br>
+- the prefix to start out is , (comma), u can simply type this in for help with all the commands while in game. <br>
+- to add a command, you have to use the `public void onCommand(String[] args, String command) {` method, also make sure to use the `@Override` annotation with this.
+- you can use the `args` to figure out if what is typed is what you want typed, for example, you can check if the args length is correct with `if(args.length > 0) {` (or whatever length you want). or you can check if the args is equal to a word that you want typed, like `if(moduleIn.equalsIgnoreCase(args[0])) {` (this is in the toggle command), this checks if what is typed in the first argument is equal to a module name.
+- the CommandManager includes to methods to help send messages to the chat that include `public static void addChatMessage(String message) {`, you can use this to send any message you would like, you can also use TextFormatting to change color mid text. and `public static void correctUsageMsg(String name, String syntax) {` simply sends a message that shows the usage of a command, u can use this if the args is less the or equal to 0, to show a player correct usage.
 
 ***module system w/ settings*** <br>
 you can use the current modules as examples <br>
