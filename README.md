@@ -1,6 +1,6 @@
 ![dddddd](https://user-images.githubusercontent.com/69589624/109410126-1623c480-7966-11eb-9bd4-56984a88a6aa.PNG)
                                                                  
-bedroom is a latest version fabric base for minecraft clients. <br>
+bedroom is a latest version fabric base for minecraft clients. this was made to serve as the base for beach house, i'm just making it public so others can use it and learn from it.<br>
 <br>
 bedroom is intended for use as a latest version fabric base for minecraft anarchy clients, it can serve as a good starting tool and can have different aspects of it changed or added onto, like adding a more in depth command system, or adding some sort of your own ui elements, and of course you own modules.
 <br>
