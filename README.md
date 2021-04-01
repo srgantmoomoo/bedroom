@@ -10,7 +10,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 **plans for bedroom 2** <br>
 - color system <br>
 - font renderer <br>
-- improved command system <br>
+✔ improved command system <br>
 - notification system <br>
 - switch config to JSON <br>
 
