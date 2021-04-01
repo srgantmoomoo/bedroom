@@ -6,7 +6,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 <br>
 <br> this is not a cheat. it's intent is for minecraft anarchy clients, and it's use for otherwise is redundant. either way bedroom itself is not a cheat, nor are it's intended targets. also, due to previous events, i would like to remind u that fabric is "free to use for everyone. No exceptions." thank you :)
 <br>
-
+# bedroom's road map
 **plans for bedroom 2** <br>
 - color system <br>
 - font renderer <br>
@@ -25,13 +25,30 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 ✔ command system <br>
 ✔ ui stuff <br>
 <br>
-**how to use** <br>
-*for eclipse* <br>
+# use of bedroom
+***for eclipse*** <br>
 - drag .zip release to a new folder
 - open folder in cmd
 - type gradlew eclipse
 - type gradlew genSources
 - boom... use
+
+***main class*** <br>
+all you have to do in your main class is change the top few lines...
+```
+public static final String modid = "bed";
+public static final String name = "bedroom";
+public static final String nameCondensed = "bedroom"; // this is for if there are spaces in ur mod name... "mod name" -> "mod-name".
+public static final String version = "1";
+  ```
+you can change the modid, name, nameCondensed, and version variables to fit your own clients. <br>
+you may also add different inits to the client under `// (your clients name)'s inits... if u need any.` <br>
+
+***command system*** <br>
+as for all of the systems here, you can use the current commands as examples. <br>
+
+***module system w/ settings*** <br>
+you can use the current modules as examples <br>
 
 <br>
 please respect the license in this repo. this is a template repo making it easier to simply use the underlying template to edit however you like, or you can clone the repo and create your own repo, as long as this base is properly credited. 
