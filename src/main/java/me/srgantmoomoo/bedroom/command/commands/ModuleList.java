@@ -15,7 +15,7 @@ public class ModuleList extends Command {
 	public void onCommand(String[] args, String command) {
 		if(args.length == 0) {
 			for (Module module : ModuleManager.getModules()) 
-				ModuleManager.addChatMessage(module.getName());
-		} if(args.length > 0) ModuleManager.addChatMessage("correct usage of modulelist command -> " + CommandManager.prefix + "modulelist");
+				CommandManager.addChatMessage(module.getName());
+		} if(args.length > 0) CommandManager.addChatMessage("correct usage of modulelist command -> " + CommandManager.prefix + "modulelist");
 	}
 }

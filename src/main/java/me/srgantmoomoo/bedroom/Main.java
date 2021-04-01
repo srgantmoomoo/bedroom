@@ -49,7 +49,7 @@ public class Main implements ModInitializer {
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
 		
-		// inits
+		// bedroom inits
 		
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
@@ -68,7 +68,9 @@ public class Main implements ModInitializer {
 		
 		saveLoad = new SaveLoad();
 		printLog("config initialized.");
-
+		
+		// (your clients name)'s inits... if u need any.
+		
 		//
 		
 		printLog(Main.name + " has finished initialization :)");
