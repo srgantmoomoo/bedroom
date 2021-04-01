@@ -16,6 +16,6 @@ public class ModuleList extends Command {
 		if(args.length == 0) {
 			for (Module module : ModuleManager.getModules()) 
 				CommandManager.addChatMessage(module.getName());
-		} if(args.length > 0) CommandManager.addChatMessage("correct usage of modulelist command -> " + CommandManager.prefix + "modulelist");
+		} if(args.length > 0) CommandManager.correctUsageMsg(name, syntax);
 	}
 }

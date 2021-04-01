@@ -79,4 +79,12 @@ public class CommandManager {
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
 	
+	public static void correctUsageMsg(String name, String syntax) {
+		String usage = "correct usage of " + name + " command -> " + prefix + syntax;
+		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + usage;
+		
+		Text textComponentString = new LiteralText(message);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
+	}
+	
 }

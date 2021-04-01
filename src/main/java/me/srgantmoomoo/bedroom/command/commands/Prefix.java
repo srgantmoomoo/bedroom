@@ -16,6 +16,6 @@ public class Prefix extends Command {
 			String key = args[0];
 			CommandManager.setCommandPrefix(key);
 			CommandManager.addChatMessage(String.format(TextFormatting.GREEN + "prefix " + TextFormatting.GRAY + "was set to " + TextFormatting.GREEN + CommandManager.prefix));
-		} if(args.length == 0) CommandManager.addChatMessage("correct usage of prefix command -> " + CommandManager.prefix + "prefix <key>");
+		} if(args.length == 0) CommandManager.correctUsageMsg(name, syntax);
 	}
 }
