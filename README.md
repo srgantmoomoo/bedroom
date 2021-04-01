@@ -50,5 +50,5 @@ as for all of the systems here, you can use the current commands as examples. <b
 ***module system w/ settings*** <br>
 you can use the current modules as examples <br>
 
-<br>
+# thanks v much <3
 please respect the license in this repo. this is a template repo making it easier to simply use the underlying template to edit however you like, or you can clone the repo and create your own repo, as long as this base is properly credited. 
