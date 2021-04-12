@@ -8,7 +8,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 <br>
 # bedroom's road map
 **plans for bedroom 2** <br>
-- color system <br>
+✔ color system <br>
 - font renderer <br>
 ✔ improved command system <br>
 - notification system <br>
