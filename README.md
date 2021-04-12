@@ -42,7 +42,7 @@ public static final String name = "bedroom";
 public static final String nameCondensed = "bedroom"; // this is for if there are spaces in ur mod name... "mod name" -> "mod-name".
 public static final String version = "1";
   ```
-you can change the modid, name, nameCondensed, and version variables to fit your own clients. <br>
+you can change the modid, name, nameCondensed, and version variables to fit your own clients, but you have to make sure to update your `fabric.mod.json file` to fit these variables, and update the `bed.mixins.json` if you want to redo the entire structure of the client.<br>
 you may also add different inits to the client under `// (your clients name)'s inits... if u need any.` <br>
 
 ***command system*** <br>
