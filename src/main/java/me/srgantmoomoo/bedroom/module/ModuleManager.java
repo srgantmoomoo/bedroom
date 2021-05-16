@@ -18,6 +18,11 @@ import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.InputUtil;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public class ModuleManager {
 	
 	public static ArrayList<Module> modules;

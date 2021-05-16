@@ -7,6 +7,11 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.setting.Setting;
 
+/** the first mode is the default mode, it has to be declared already as one of the following modes, you can have as many modes as you'd like.
+ * @author SrgantMooMoo
+ * @since 05/16/2021
+ */
+
 public class ModeSetting extends Setting {
 	public int index;
 	  

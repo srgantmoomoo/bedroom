@@ -13,6 +13,11 @@ import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
 import net.fabricmc.api.ModInitializer;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public class Main implements ModInitializer {
 	
 	public static final String modid = "bed";

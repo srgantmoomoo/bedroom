@@ -10,6 +10,11 @@ import me.srgantmoomoo.bedroom.setting.Setting;
 import me.srgantmoomoo.bedroom.setting.settings.KeybindSetting;
 import net.minecraft.client.MinecraftClient;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public class Module {
 	
 	protected static final MinecraftClient mc = MinecraftClient.getInstance();

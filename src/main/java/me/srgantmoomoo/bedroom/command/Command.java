@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public abstract class Command {
 	public String name, description, syntax;
 	public List<String> aliases = new ArrayList<String>();

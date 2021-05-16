@@ -16,6 +16,11 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public class CommandManager {
 	
 	public static List<Command> commands = new ArrayList<Command>();

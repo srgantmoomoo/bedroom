@@ -4,6 +4,11 @@ import me.srgantmoomoo.bedroom.Main;
 import me.zero.alpine.listener.Listenable;
 import net.minecraft.client.MinecraftClient;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public class EventProcessor implements Listenable {
 	
 	public static EventProcessor instance;
@@ -15,5 +20,3 @@ public class EventProcessor implements Listenable {
 	}
 
 }
-
-//i meant prefix and help on the last commit btw lol.

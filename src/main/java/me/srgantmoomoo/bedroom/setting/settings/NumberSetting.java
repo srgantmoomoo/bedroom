@@ -4,17 +4,22 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.setting.Setting;
 
+/** the first value is the defualt value, the second and third are the minimum and maximum, the last determines by how much the value increments when changed via ui.
+ * @author SrgantMooMoo
+ * @since 05/16/2021
+ */
+
 public class NumberSetting extends Setting {
 	public double value;
-	public double minimun;
+	public double minimum;
 	public double maximum;
 	public double increment;
 	  
-	public NumberSetting(String name, Module parent, double value, double minimun, double maximum, double increment) {
+	public NumberSetting(String name, Module parent, double value, double minimum, double maximum, double increment) {
 		this.name = name;
 	    this.parent = parent;
 	    this.value = value;
-	    this.minimun = minimun;
+	    this.minimum = minimum;
 	    this.maximum = maximum;
 	    this.increment = increment;
 	  }
@@ -26,7 +31,7 @@ public class NumberSetting extends Setting {
 	public void setValue(double value) {
 	    double precision = 1.0D / this.increment;
 	    //this.value = value;
-	    this.value = Math.round(Math.max(this.minimun, Math.min(this.maximum, value)) * precision) / precision;
+	    this.value = Math.round(Math.max(this.minimum, Math.min(this.maximum, value)) * precision) / precision;
 	    
 	    if(Main.saveLoad != null) {
 			Main.saveLoad.save();
@@ -37,12 +42,12 @@ public class NumberSetting extends Setting {
 	    setValue(getValue() + (positive ? 1 : -1) * increment);
 	}
 	  
-	public double getMinimun() {
-	    return this.minimun;
+	public double getMinimum() {
+	    return this.minimum;
 	}
 
-	public void setMinimun(double minimun) {
-	    this.minimun = minimun;
+	public void setMinimum(double minimum) {
+	    this.minimum = minimum;
 	}
 	  
 	public double getMaximum() {

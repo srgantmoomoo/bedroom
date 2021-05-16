@@ -18,8 +18,9 @@ import me.srgantmoomoo.bedroom.setting.settings.ModeSetting;
 import me.srgantmoomoo.bedroom.setting.settings.NumberSetting;
 import net.minecraft.client.MinecraftClient;
 
-/*
- * Written by @SrgantMooMoo on 11/30/20 with inspiration taken from @SebSb.
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
  */
 
 public class SaveLoad {
