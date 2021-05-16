@@ -7,16 +7,18 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 <br> this is not a cheat. it's intent is for minecraft anarchy clients, and it's use for otherwise is redundant. either way bedroom itself is not a cheat, nor are it's intended targets. also, due to previous events, i would like to remind u that fabric is "free to use for everyone. No exceptions." thank you :)
 <br>
 # bedroom's road map
-**plans for bedroom 2** <br>
-✔ improved command system <br>
-✔ color system <br>
-- example settings <br>
+**plans for bedroom 3**
 - font renderer <br>
 - notification system <br>
 - switch config to JSON <br>
+- ui stuff, clickgui maybe if i want to lol <br>
 
-*im not sure if i wanna do any ui stuff yet, i have some plans for that in the future but if anyone has some ideas, lmk :)* <br>
-<br>
+**plans for bedroom 2** <br>
+✔ improved command system <br>
+✔ color system <br>
+✔ improved main class <br>
+✔ improved code <br>
+- example settings <br>
 
 **bedroom 1** <br>
 ✔ events <br>
