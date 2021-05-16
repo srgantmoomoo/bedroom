@@ -59,7 +59,7 @@ as for all of the systems here, you can use the current commands as examples. <b
 you can use the current modules as examples. <br>
 the ExampleRenderModule includes examples for the settings too. <br>
 
-***events and mixins***
+***events and mixins*** <br>
 most events and mixins tie into eachother here, so one good example you can use is the EventDrawOverlay events, which is posted in the MixinInGameHud mixin and used in the UI class, this is pretty much the simplest one i use. <br>
 bedroom uses [Alpine 1.9](https://github.com/ZeroMemes/Alpine) for it's event system, you can use their own repo for further help on this, they explain it pretty well.
 
