@@ -19,6 +19,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 ✔ improved main class <br>
 ✔ improved code <br>
 - example settings <br>
+- documentation <br>
 
 **bedroom 1** <br>
 ✔ events <br>
