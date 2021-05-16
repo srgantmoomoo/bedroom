@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public class SettingManager {
 	
 	private ArrayList<Setting> settings;

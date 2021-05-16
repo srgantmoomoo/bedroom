@@ -13,12 +13,17 @@ import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
 import net.fabricmc.api.ModInitializer;
 
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
+
 public class Main implements ModInitializer {
 	
 	public static final String modid = "bed";
 	public static final String name = "bedroom";
 	public static final String nameCondensed = "bedroom"; // this is for if there are spaces in ur mod name... "mod name" -> "mod-name".
-	public static final String version = "1";
+	public static final String version = "2";
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
@@ -49,7 +54,7 @@ public class Main implements ModInitializer {
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
 		
-		// inits
+		// bedroom inits
 		
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
@@ -68,7 +73,9 @@ public class Main implements ModInitializer {
 		
 		saveLoad = new SaveLoad();
 		printLog("config initialized.");
-
+		
+		// (your clients name)'s inits... if u need any.
+		
 		//
 		
 		printLog(Main.name + " has finished initialization :)");

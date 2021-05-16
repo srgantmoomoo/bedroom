@@ -8,12 +8,18 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.srgantmoomoo.bedroom.command.commands.*;
-import me.srgantmoomoo.bedroom.module.ModuleManager;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+
+/** 
+ * @author SrgantMooMoo
+ * @since 5/16/2021
+ */
 
 public class CommandManager {
 	
@@ -51,7 +57,7 @@ public class CommandManager {
         		}
         	}
         	if(!commandFound) {
-        		ModuleManager.addChatMessage(TextFormatting.DARK_RED + "command does not exist, use " + TextFormatting.ITALIC + prefix + "help " + TextFormatting.RESET + "" + TextFormatting.DARK_RED + "for help.");
+        		addChatMessage(TextFormatting.DARK_RED + "command does not exist, use " + TextFormatting.ITALIC + prefix + "help " + TextFormatting.RESET + "" + TextFormatting.DARK_RED + "for help.");
         	}
         }
     }
@@ -71,5 +77,19 @@ public class CommandManager {
 			Main.saveLoad.save();
 		}
     }
+	
+	public static void addChatMessage(String message) {
+		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + message;
+		Text textComponentString = new LiteralText(messageWithPre);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
+	}
+	
+	public static void correctUsageMsg(String name, String syntax) {
+		String usage = "correct usage of " + name + " command -> " + prefix + syntax;
+		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + usage;
+		
+		Text textComponentString = new LiteralText(message);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
+	}
 	
 }
