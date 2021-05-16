@@ -42,7 +42,7 @@ all you have to do in your main class is change the top few lines...
 ```
 public static final String modid = "bed";
 public static final String name = "bedroom";
-public static final String nameCondensed = "bedroom"; // this is for if there are spaces in ur mod name... "mod name" -> "mod-name".
+public static final String nameCondensed = "bedroom";
 public static final String version = "1";
   ```
 you can change the modid, name, nameCondensed, and version variables to fit your own clients, but you have to make sure to update your `fabric.mod.json file` to fit these variables, and update the `bed.mixins.json` if you want to redo the entire structure of the client.<br>
@@ -56,7 +56,12 @@ as for all of the systems here, you can use the current commands as examples. <b
 - the CommandManager includes two methods to help send messages to the chat that include `public static void addChatMessage(String message) {`, you can use this to send any message you would like, you can also use TextFormatting to change color mid text. and `public static void correctUsageMsg(String name, String syntax) {` simply sends a message that shows the usage of a command, u can use this if the args is less the or equal to 0, to show a player correct usage.
 
 ***module system w/ settings*** <br>
-you can use the current modules as examples <br>
+you can use the current modules as examples. <br>
+the ExampleRenderModule includes examples for the settings too. <br>
+
+***events and mixins***
+most events and mixins tie into eachother here, so one good example you can use is the EventDrawOverlay events, which is posted in the MixinInGameHud mixin and used in the UI class, this is pretty much the simplest one i use. <br>
+bedroom uses [Alpine 1.9](https://github.com/ZeroMemes/Alpine) for it's event system, you can use their own repo for further help on this, they explain it pretty well.
 
 # thanks v much <3
 please respect the license in this repo. this is a template repo making it easier to simply use the underlying template to edit however you like, or you can clone the repo and create your own repo, as long as this base is properly credited. 
