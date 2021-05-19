@@ -13,6 +13,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - switch config to JSON <br>
 - ui stuff, clickgui maybe if i want to lol <br>
 - command javadoc. <br>
+- support for baritone integration. <br>
 
 **plans for bedroom 2** <br>
 ✔ improved command system <br>
