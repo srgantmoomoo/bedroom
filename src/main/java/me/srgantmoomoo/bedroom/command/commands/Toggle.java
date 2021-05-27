@@ -9,7 +9,7 @@ import me.srgantmoomoo.bedroom.module.ModuleManager;
 public class Toggle extends Command {
 	
 	public Toggle() {
-		super("Toggle", "Toggles a module by name.", "toggle <name>", "t");
+		super("toggle", "toggles a module by name.", "toggle <module>", "t");
 	}
 
 	@Override

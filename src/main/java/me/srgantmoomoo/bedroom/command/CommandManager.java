@@ -85,7 +85,7 @@ public class CommandManager {
 	}
 	
 	public static void correctUsageMsg(String name, String syntax) {
-		String usage = "correct usage of " + name + " command -> " + prefix + syntax;
+		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
 		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + usage;
 		
 		Text textComponentString = new LiteralText(message);
