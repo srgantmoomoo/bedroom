@@ -12,10 +12,10 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - notification system <br>
 - switch config to JSON <br>
 - ui stuff, clickgui maybe if i want to lol <br>
-- command javadoc. <br>
-✔ command sysetm overhaul. <br>
-✔ onUpdate method added. <br>
-✔ refactorization.
+- command javadoc <br>
+✔ command sysetm overhaul <br>
+✔ onUpdate method added <br>
+✔ refactorization <br>
 
 **plans for bedroom 2** <br>
 ✔ improved command system <br>
