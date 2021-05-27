@@ -12,14 +12,15 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - notification system <br>
 - switch config to JSON <br>
 - ui stuff, clickgui maybe if i want to lol <br>
+- command javadoc. <br>
 
 **plans for bedroom 2** <br>
 ✔ improved command system <br>
 ✔ color system <br>
 ✔ improved main class <br>
 ✔ improved code <br>
-- example settings <br>
-- documentation <br>
+✔ example settings <br>
+✔ documentation <br>
 
 **bedroom 1** <br>
 ✔ events <br>
