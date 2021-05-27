@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 
 import me.srgantmoomoo.bedroom.Main;
-import me.srgantmoomoo.bedroom.setting.Setting;
-import me.srgantmoomoo.bedroom.setting.settings.KeybindSetting;
+import me.srgantmoomoo.bedroom.module.setting.Setting;
+import me.srgantmoomoo.bedroom.module.setting.settings.KeybindSetting;
 import net.minecraft.client.MinecraftClient;
 
 /** 

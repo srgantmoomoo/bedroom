@@ -7,7 +7,7 @@ import me.srgantmoomoo.bedroom.api.config.SaveLoad;
 import me.srgantmoomoo.bedroom.api.event.EventProcessor;
 import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
-import me.srgantmoomoo.bedroom.setting.SettingManager;
+import me.srgantmoomoo.bedroom.module.setting.SettingManager;
 import me.srgantmoomoo.bedroom.ui.UI;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;

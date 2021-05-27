@@ -12,10 +12,10 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
-import me.srgantmoomoo.bedroom.setting.Setting;
-import me.srgantmoomoo.bedroom.setting.settings.BooleanSetting;
-import me.srgantmoomoo.bedroom.setting.settings.ModeSetting;
-import me.srgantmoomoo.bedroom.setting.settings.NumberSetting;
+import me.srgantmoomoo.bedroom.module.setting.Setting;
+import me.srgantmoomoo.bedroom.module.setting.settings.BooleanSetting;
+import me.srgantmoomoo.bedroom.module.setting.settings.ModeSetting;
+import me.srgantmoomoo.bedroom.module.setting.settings.NumberSetting;
 import net.minecraft.client.MinecraftClient;
 
 /** 
