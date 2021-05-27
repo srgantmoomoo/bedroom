@@ -9,7 +9,8 @@
 	"MixinGameRenderer",
 	"MixinIngameHud",
 	"MixinKeyboard",
-	"MixinClientConnection"
+	"MixinClientConnection",
+	"MixinClientWorld"
   ],
   "injectors": {
     "defaultRequire": 1

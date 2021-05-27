@@ -123,5 +123,9 @@ public class Module {
 	public void onDisable() {
 
 	}
+	
+	public void onUpdate() {
+		
+	}
 
 }

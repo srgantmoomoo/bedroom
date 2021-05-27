@@ -4,23 +4,66 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.srgantmoomoo.bedroom.command.Command;
 import me.srgantmoomoo.bedroom.command.CommandManager;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 public class Help extends Command {
 	
 	public Help() {
 		super("help", "helps u penis.", "help", "h");
 	}
+	
+	public static Prefix prefix;
+	public static Toggle toggle;
+	public static ModuleList moduleList;
 
 	@Override
 	public void onCommand(String[] args, String command) {
+		prefix = new Prefix();
+		toggle = new Toggle();
+		moduleList = new ModuleList();
 		
-		CommandManager.addChatMessage(TextFormatting.BOLD + Main.name + " " + Main.version + "!");
+		welcomeMessage();
+		helpMessage(prefix.getName(), prefix.getDescription(), prefix.getSyntax());
+		helpMessage(toggle.getName(), toggle.getDescription(), toggle.getSyntax());
+		helpMessage(moduleList.getName(), moduleList.getDescription(), moduleList.getSyntax());
+		goodbyeMessage();
+	}
+	
+	private void helpMessage(String commandName, String commandDesc, String commandSyntax) {
+		String starter = TextFormatting.LIGHT_PURPLE + commandName + TextFormatting.GRAY + " - " + commandDesc;
+		String syntaxMessage = " [" + CommandManager.prefix + commandSyntax + "]";
 		
-		CommandManager.addChatMessage("prefix - " + TextFormatting.ITALIC + "allows you to change the command prefix" + " -> "  + CommandManager.prefix + "prefix <key>");
+		String message = starter;
 		
-		CommandManager.addChatMessage("toggle - " + TextFormatting.ITALIC + "toggles modules on and off" + " -> "  + CommandManager.prefix + "toggle <module>");
+		Text textComponentString = new LiteralText(message);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
+		Text syntaxTextComponentString = new LiteralText(syntaxMessage);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(syntaxTextComponentString);
+	}
+	
+	private void welcomeMessage() {
+		String welcomeString = TextFormatting.GRAY + "" + TextFormatting.BOLD + Main.name + " " + Main.version + "!";
+		String bedroom = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name;
+		String nothing = " ";
 		
-		CommandManager.addChatMessage("modulelist - " + TextFormatting.ITALIC + "shows all of the modules in the client" + " -> " + CommandManager.prefix + "modulelist");
+		Text textComponentString = new LiteralText(welcomeString);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
+		Text nothingTextComponentString = new LiteralText(nothing);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(nothingTextComponentString);
+		Text bedroomTextComponentString = new LiteralText(bedroom);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(bedroomTextComponentString);
 		
+	}
+	
+	private void goodbyeMessage() {
+		String uwu = TextFormatting.GRAY + "" + TextFormatting.BOLD + "uwu" + TextFormatting.AQUA + " ~";
+		String nothing = " ";
+				
+		Text nothingTextComponentString = new LiteralText(nothing);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(nothingTextComponentString);
+		Text textComponentString = new LiteralText(uwu);
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
 
 }
