@@ -8,11 +8,13 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 <br>
 # bedroom's road map
 **plans for bedroom 3**
-- font renderer <br>
-- notification system <br>
-- switch config to JSON <br>
-- ui stuff, clickgui maybe if i want to lol <br>
+- font renderer 
+- notification system 
+- switch config to JSON 
+- ui stuff, clickgui maybe if i want to lol 
 - command javadoc <br>
+
+✔ fix module class... automatic event subscribing and event subscribing on launch fix <br>
 ✔ command sysetm overhaul <br>
 ✔ onUpdate method added <br>
 ✔ refactorization <br>
