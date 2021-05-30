@@ -20,7 +20,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 ✔ onUpdate method added <br>
 ✔ refactorization <br>
 
-**plans for bedroom 2** <br>
+**bedroom 2** <br>
 ✔ improved command system <br>
 ✔ color system <br>
 ✔ improved main class <br>
