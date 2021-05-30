@@ -14,6 +14,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - ui stuff, clickgui maybe if i want to lol 
 - command javadoc <br>
 
+✔ main class tweaked a bit <br>
 ✔ fix module class... automatic event subscribing and event subscribing on launch fix <br>
 ✔ command sysetm overhaul <br>
 ✔ onUpdate method added <br>
