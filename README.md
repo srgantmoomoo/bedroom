@@ -15,7 +15,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - command javadoc <br>
 - support for baritone integration <br>
 
-**plans for bedroom 2** <br>
+**bedroom 2** <br>
 ✔ improved command system <br>
 ✔ color system <br>
 ✔ improved main class <br>
