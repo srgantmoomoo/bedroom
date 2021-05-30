@@ -8,6 +8,7 @@ import java.util.List;
 import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.module.setting.Setting;
 import me.srgantmoomoo.bedroom.module.setting.settings.KeybindSetting;
+import me.zero.alpine.listener.Listenable;
 import net.minecraft.client.MinecraftClient;
 
 /** 
@@ -15,7 +16,7 @@ import net.minecraft.client.MinecraftClient;
  * @since 5/16/2021
  */
 
-public class Module {
+public class Module implements Listenable {
 	
 	protected static final MinecraftClient mc = MinecraftClient.getInstance();
 	public static ArrayList<Module> modules;
@@ -32,25 +33,24 @@ public class Module {
 		this.name = name;
 		this.description = description;
 		keyCode.code = key;
-		this.addSettings(keyCode);
+		addSettings(keyCode);
 		this.category = category;
-		this.enabled = false;
-	}
-	
-	public void addSettings(Setting... settings) {
-		this.settings.addAll(Arrays.asList(settings));
-		this.settings.sort(Comparator.comparingInt(s -> s == keyCode ? 1 : 0));
+		enabled = false;
 	}
 	
 	public enum Category {
-		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous");
-		
+		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous"), BEACHHOUSE("beachhouse");
 		public String name;
 		public int moduleIndex;
 		
 		Category(String name) {
 			this.name = name;
 		}
+	}
+	
+	public void addSettings(Setting... settings) {
+		this.settings.addAll(Arrays.asList(settings));
+		this.settings.sort(Comparator.comparingInt(s -> s == keyCode ? 1 : 0));
 	}
 	
 	public String getName() {
@@ -82,11 +82,11 @@ public class Module {
 	} 
 	
 	public void toggle() {
-		if(isEnabled()) {
-			disable();
-		}
-		else if(!isEnabled()) {
+		enabled = !enabled;
+		if(enabled) {
 			enable();
+		}else {
+			disable();
 		}
 		
 		if(Main.saveLoad != null) {
@@ -100,6 +100,11 @@ public class Module {
 	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+		if(enabled) {
+			Main.EVENTBUS.subscribe(this);
+		}else {
+			Main.EVENTBUS.unsubscribe(this);
+		}
 		
 		if(Main.saveLoad != null) {
 			Main.saveLoad.save();
@@ -107,21 +112,21 @@ public class Module {
 	}
 	
 	public void enable() {
-		setEnabled(true);
 		onEnable();
+		setEnabled(true);
 	}
 
 	public void disable() {
-		setEnabled(false);
 		onDisable();
+		setEnabled(false);
 	}
 	
 	public void onEnable() {
-
+		
 	}
 	
 	public void onDisable() {
-
+		
 	}
 	
 	public void onUpdate() {

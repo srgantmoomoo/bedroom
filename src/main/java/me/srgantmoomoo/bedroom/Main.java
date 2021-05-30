@@ -44,8 +44,18 @@ public class Main implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		printLog("welcome to bedroom!");
+		bedroomInits();
+		clientInits();
+	}
+	
+	public void clientInits() {
+		// put your clients inits here if u need any.
 		
+		printLog(Main.name + " has finished initialization :)");
+	}
+	
+	public void bedroomInits() {
+		printLog("welcome to bedroom!");
 		printLog("\n" +
                 " __                     __                                       \n" +
                 "[  |                   |  ]                                      \n" +
@@ -53,8 +63,6 @@ public class Main implements ModInitializer {
                 " | '/'`\\ \\/ /__\\\\/ /'`\\' | [ `/'`\\]/ .'`\\ \\/ .'`\\ \\[ `.-. .-. |  \n" +
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
-		
-		// bedroom inits
 		
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
@@ -73,12 +81,6 @@ public class Main implements ModInitializer {
 		
 		saveLoad = new SaveLoad();
 		printLog("config initialized.");
-		
-		// (your clients name)'s inits... if u need any.
-		
-		//
-		
-		printLog(Main.name + " has finished initialization :)");
 	}
 
 }
