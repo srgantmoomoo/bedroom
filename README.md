@@ -7,17 +7,21 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 <br> this is not a cheat. it's intent is for minecraft anarchy clients, and it's use for otherwise is redundant. either way bedroom itself is not a cheat, nor are it's intended targets. also, due to previous events, i would like to remind u that fabric is "free to use for everyone. No exceptions." thank you :)
 <br>
 # bedroom's road map
+**plans for bedroom 4**
+- make it a useable api via gradle
+- JSON config
+- font renderer
+
 **plans for bedroom 3**
-- font renderer <br>
-- notification system <br>
-- switch config to JSON <br>
-- ui stuff, clickgui maybe if i want to lol <br>
 - command javadoc <br>
+
+✔ main class tweaked a bit <br>
+✔ fix module class... automatic event subscribing and event subscribing on launch fix <br>
 ✔ command sysetm overhaul <br>
 ✔ onUpdate method added <br>
 ✔ refactorization <br>
 
-**plans for bedroom 2** <br>
+**bedroom 2** <br>
 ✔ improved command system <br>
 ✔ color system <br>
 ✔ improved main class <br>
@@ -50,7 +54,7 @@ public static final String nameCondensed = "bedroom";
 public static final String version = "1";
   ```
 you can change the modid, name, nameCondensed, and version variables to fit your own clients, but you have to make sure to update your `fabric.mod.json file` to fit these variables, and update the `bed.mixins.json` if you want to redo the entire structure of the client.<br>
-you may also add different inits to the client under `// (your clients name)'s inits... if u need any.` <br>
+you may also add different inits to the client under `public void clientInits() {` <br>
 
 ***command system*** <br>
 as for all of the systems here, you can use the current commands as examples. <br>
