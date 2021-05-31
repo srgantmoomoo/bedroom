@@ -7,6 +7,8 @@ import me.srgantmoomoo.bedroom.command.CommandManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+
+@SuppressWarnings("resource")
 public class Help extends Command {
 	
 	public Help() {
