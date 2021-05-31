@@ -7,7 +7,7 @@ import me.srgantmoomoo.bedroom.api.config.SaveLoad;
 import me.srgantmoomoo.bedroom.api.event.EventProcessor;
 import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
-import me.srgantmoomoo.bedroom.setting.SettingManager;
+import me.srgantmoomoo.bedroom.module.setting.SettingManager;
 import me.srgantmoomoo.bedroom.ui.UI;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
@@ -23,7 +23,7 @@ public class Main implements ModInitializer {
 	public static final String modid = "bed";
 	public static final String name = "bedroom";
 	public static final String nameCondensed = "bedroom"; // this is for if there are spaces in ur mod name... "mod name" -> "mod-name".
-	public static final String version = "2";
+	public static final String version = "3";
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
@@ -44,8 +44,18 @@ public class Main implements ModInitializer {
 	
 	@Override
 	public void onInitialize() {
-		printLog("welcome to bedroom!");
+		bedroomInits();
+		clientInits();
+	}
+	
+	public void clientInits() {
+		// put your clients inits here if u need any.
 		
+		printLog(Main.name + " has finished initialization :)");
+	}
+	
+	public void bedroomInits() {
+		printLog("welcome to bedroom!");
 		printLog("\n" +
                 " __                     __                                       \n" +
                 "[  |                   |  ]                                      \n" +
@@ -53,8 +63,6 @@ public class Main implements ModInitializer {
                 " | '/'`\\ \\/ /__\\\\/ /'`\\' | [ `/'`\\]/ .'`\\ \\/ .'`\\ \\[ `.-. .-. |  \n" +
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
-		
-		// bedroom inits
 		
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
@@ -73,12 +81,6 @@ public class Main implements ModInitializer {
 		
 		saveLoad = new SaveLoad();
 		printLog("config initialized.");
-		
-		// (your clients name)'s inits... if u need any.
-		
-		//
-		
-		printLog(Main.name + " has finished initialization :)");
 	}
 
 }

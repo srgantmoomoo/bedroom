@@ -1,8 +1,8 @@
-package me.srgantmoomoo.bedroom.setting.settings;
+package me.srgantmoomoo.bedroom.module.setting.settings;
 
 import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.module.Module;
-import me.srgantmoomoo.bedroom.setting.Setting;
+import me.srgantmoomoo.bedroom.module.setting.Setting;
 
 /** the only value you need to worry about is the default value, it can either be true or false.
  * @author SrgantMooMoo

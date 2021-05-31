@@ -38,6 +38,10 @@ public class ModuleManager {
 		ModuleManager.modules.add(new ExampleMiscellaneousModule());
 	}
 	
+	public static void onUpdate() {
+		modules.stream().filter(Module::isEnabled).forEach(Module::onUpdate);
+	}
+	
 	public static boolean isModuleEnabled(String name) {
 		Module m = modules.stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
 		return m.isEnabled();

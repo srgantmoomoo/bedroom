@@ -3,6 +3,7 @@ package me.srgantmoomoo.bedroom.api.event.events;
 import me.srgantmoomoo.bedroom.api.event.Event;
 import net.minecraft.network.Packet;
 
+@SuppressWarnings("rawtypes")
 public class PacketEvent extends Event {
 
 	private final Packet packet;

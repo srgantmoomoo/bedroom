@@ -78,14 +78,25 @@ public class CommandManager {
 		}
     }
 	
+	/**
+	 * send a client side chat message with a prefix to the minecraft chat.
+	 * @param message
+	 */
+	@SuppressWarnings("resource")
 	public static void addChatMessage(String message) {
 		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + message;
 		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
 	
+	/**
+	 * send a client side message to the minecraft chat telling the user how to correctly use a certain command.
+	 * @param name
+	 * @param syntax
+	 */
+	@SuppressWarnings("resource")
 	public static void correctUsageMsg(String name, String syntax) {
-		String usage = "correct usage of " + name + " command -> " + prefix + syntax;
+		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
 		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + usage;
 		
 		Text textComponentString = new LiteralText(message);

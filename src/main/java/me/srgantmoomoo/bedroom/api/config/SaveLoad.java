@@ -12,10 +12,10 @@ import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
-import me.srgantmoomoo.bedroom.setting.Setting;
-import me.srgantmoomoo.bedroom.setting.settings.BooleanSetting;
-import me.srgantmoomoo.bedroom.setting.settings.ModeSetting;
-import me.srgantmoomoo.bedroom.setting.settings.NumberSetting;
+import me.srgantmoomoo.bedroom.module.setting.Setting;
+import me.srgantmoomoo.bedroom.module.setting.settings.BooleanSetting;
+import me.srgantmoomoo.bedroom.module.setting.settings.ModeSetting;
+import me.srgantmoomoo.bedroom.module.setting.settings.NumberSetting;
 import net.minecraft.client.MinecraftClient;
 
 /** 
@@ -24,10 +24,10 @@ import net.minecraft.client.MinecraftClient;
  */
 
 public class SaveLoad {
-
 	private File dir;
 	private File dataFile;
-	   
+	
+	@SuppressWarnings("resource")
 	public SaveLoad() {
 		dir = new File(MinecraftClient.getInstance().runDirectory, Main.name);
 		if(!dir.exists()) {
@@ -47,7 +47,6 @@ public class SaveLoad {
 		ArrayList<String> toSave = new ArrayList<String>();
 		
 		for(Module mod : ModuleManager.modules) {
-			if(!mod.getName().equals("tabGui"))
 			toSave.add("MOD:" + mod.getName() + ":" + mod.isEnabled() + ":" + mod.getKey());
 		}
 		
@@ -69,9 +68,8 @@ public class SaveLoad {
 					toSave.add("SET:" + mod.getName() + ":" + setting.name + ":" + mode.getMode());
 				}
 			}
-		} 
+		}
 		
-		// command prefix
 		toSave.add("COMMANDPREFIX:" + CommandManager.prefix);
 		
 		try {
@@ -105,17 +103,13 @@ public class SaveLoad {
 			if(s.toLowerCase().startsWith("mod:")) {
 				Module m = Main.moduleManager.getModule(args[1]);
 				if(m != null) {
-					if(m.getName().equals("clickGuiModule") && m.getName().equals("hudEditor"))
-						m.setEnabled(!Boolean.parseBoolean(args[2]));
-					
-					if(!m.getName().equals("clickGuiModule") && !m.getName().equals("hudEditor"))
 					m.setEnabled(Boolean.parseBoolean(args[2]));
 					m.setKey(Integer.parseInt(args[3]));
 				}
 			}else if(s.toLowerCase().startsWith("set:")) {
 				Module m = Main.moduleManager.getModule(args[1]);
 				if(m != null) {
-					Setting setting = Main.settingManager.getSettingByName(m,args[2]);
+					Setting setting = Main.settingManager.getSettingByName(m, args[2]);
 					if(setting != null) {
 						if(setting instanceof BooleanSetting) {
 							((BooleanSetting)setting).setEnabled(Boolean.parseBoolean(args[3]));

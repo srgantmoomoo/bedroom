@@ -1,4 +1,4 @@
-package me.srgantmoomoo.bedroom.setting;
+package me.srgantmoomoo.bedroom.module.setting;
 
 import java.util.ArrayList;
 

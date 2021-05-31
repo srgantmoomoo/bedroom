@@ -1,7 +1,11 @@
 package me.srgantmoomoo.bedroom.api.event;
 
 import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.api.event.events.EventTick;
+import me.srgantmoomoo.bedroom.module.ModuleManager;
+import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listenable;
+import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
 
 /** 
@@ -18,5 +22,12 @@ public class EventProcessor implements Listenable {
 		instance = this;
 		Main.EVENTBUS.subscribe(this);
 	}
+	
+	@EventHandler
+	private final Listener<EventTick> listener = new Listener<>(e -> {
+		if (mc.player != null) {
+			ModuleManager.onUpdate();
+		}
+	});
 
 }

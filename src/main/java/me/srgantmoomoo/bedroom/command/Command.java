@@ -20,6 +20,11 @@ public abstract class Command {
 		this.aliases = Arrays.asList(aliases);
 	}
 	
+	/**
+	 * perform an action when a command is sent.
+	 * @param args
+	 * @param command
+	 */
 	public abstract void onCommand(String[] args, String command);
 	
 	public String getName() {

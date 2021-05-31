@@ -7,7 +7,7 @@ import me.srgantmoomoo.bedroom.command.CommandManager;
 public class Prefix extends Command {
 	
 	public Prefix() {
-		super("prefix", "change the prefix", "prefix", "p");
+		super("prefix", "allows you to change the command prefix.", "prefix <key>", "p");
 	}
 
 	@Override

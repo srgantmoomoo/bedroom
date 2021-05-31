@@ -1,8 +1,8 @@
-package me.srgantmoomoo.bedroom.setting.settings;
+package me.srgantmoomoo.bedroom.module.setting.settings;
 
 import me.srgantmoomoo.bedroom.Main;
 import me.srgantmoomoo.bedroom.module.Module;
-import me.srgantmoomoo.bedroom.setting.Setting;
+import me.srgantmoomoo.bedroom.module.setting.Setting;
 
 /** the first value is the defualt value, the second and third are the minimum and maximum, the last determines by how much the value increments when changed via ui.
  * @author SrgantMooMoo

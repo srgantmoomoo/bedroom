@@ -3,9 +3,9 @@ package me.srgantmoomoo.bedroom.module.modules.render;
 import org.lwjgl.glfw.GLFW;
 
 import me.srgantmoomoo.bedroom.module.Module;
-import me.srgantmoomoo.bedroom.setting.settings.BooleanSetting;
-import me.srgantmoomoo.bedroom.setting.settings.ModeSetting;
-import me.srgantmoomoo.bedroom.setting.settings.NumberSetting;
+import me.srgantmoomoo.bedroom.module.setting.settings.BooleanSetting;
+import me.srgantmoomoo.bedroom.module.setting.settings.ModeSetting;
+import me.srgantmoomoo.bedroom.module.setting.settings.NumberSetting;
 
 public class ExampleRenderModule extends Module {
 	public BooleanSetting exampleBoolean = new BooleanSetting("exampleBoolean", this, false);
