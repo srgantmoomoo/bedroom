@@ -1,6 +1,6 @@
 package me.srgantmoomoo.bedroom.command.commands;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.srgantmoomoo.bedroom.command.Command;
 import me.srgantmoomoo.bedroom.command.CommandManager;
@@ -45,8 +45,8 @@ public class Help extends Command {
 	}
 	
 	private void welcomeMessage() {
-		String welcomeString = TextFormatting.GRAY + "" + TextFormatting.BOLD + Main.name + " " + Main.version + "!";
-		String bedroom = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name;
+		String welcomeString = TextFormatting.GRAY + "" + TextFormatting.BOLD + Bedroom.variables.modname + " " + Bedroom.variables.modversion + "!";
+		String bedroom = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.variables.modname;
 		String nothing = " ";
 		
 		Text textComponentString = new LiteralText(welcomeString);

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.module.setting.Setting;
 import me.srgantmoomoo.bedroom.module.setting.settings.KeybindSetting;
 import me.zero.alpine.listener.Listenable;
@@ -39,7 +39,7 @@ public class Module implements Listenable {
 	}
 	
 	public enum Category {
-		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous"), BEACHHOUSE("beachhouse");
+		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous");
 		public String name;
 		public int moduleIndex;
 		
@@ -76,8 +76,8 @@ public class Module implements Listenable {
 	public void setKey(int key) {
 		this.keyCode.code = key;
 		
-		 if(Main.saveLoad != null) {
-				Main.saveLoad.save();
+		 if(Bedroom.classes.saveLoad != null) {
+				Bedroom.classes.saveLoad.save();
 		 }
 	} 
 	
@@ -89,8 +89,8 @@ public class Module implements Listenable {
 			disable();
 		}
 		
-		if(Main.saveLoad != null) {
-			Main.saveLoad.save();
+		if(Bedroom.classes.saveLoad != null) {
+			Bedroom.classes.saveLoad.save();
 		}
 	}
 	
@@ -101,13 +101,13 @@ public class Module implements Listenable {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 		if(enabled) {
-			Main.EVENTBUS.subscribe(this);
+			Bedroom.EVENTBUS.subscribe(this);
 		}else {
-			Main.EVENTBUS.unsubscribe(this);
+			Bedroom.EVENTBUS.unsubscribe(this);
 		}
 		
-		if(Main.saveLoad != null) {
-			Main.saveLoad.save();
+		if(Bedroom.classes.saveLoad != null) {
+			Bedroom.classes.saveLoad.save();
 		}
 	}
 	

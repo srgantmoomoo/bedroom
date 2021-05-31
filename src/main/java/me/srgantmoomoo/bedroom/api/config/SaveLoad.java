@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
@@ -29,7 +29,7 @@ public class SaveLoad {
 	
 	@SuppressWarnings("resource")
 	public SaveLoad() {
-		dir = new File(MinecraftClient.getInstance().runDirectory, Main.name);
+		dir = new File(MinecraftClient.getInstance().runDirectory, Bedroom.variables.modname);
 		if(!dir.exists()) {
 			dir.mkdir();
 		}
@@ -101,15 +101,15 @@ public class SaveLoad {
 		for(String s : lines) {
 			String[] args = s.split(":");
 			if(s.toLowerCase().startsWith("mod:")) {
-				Module m = Main.moduleManager.getModule(args[1]);
+				Module m = Bedroom.classes.moduleManager.getModule(args[1]);
 				if(m != null) {
 					m.setEnabled(Boolean.parseBoolean(args[2]));
 					m.setKey(Integer.parseInt(args[3]));
 				}
 			}else if(s.toLowerCase().startsWith("set:")) {
-				Module m = Main.moduleManager.getModule(args[1]);
+				Module m = Bedroom.classes.moduleManager.getModule(args[1]);
 				if(m != null) {
-					Setting setting = Main.settingManager.getSettingByName(m, args[2]);
+					Setting setting = Bedroom.classes.settingManager.getSettingByName(m, args[2]);
 					if(setting != null) {
 						if(setting instanceof BooleanSetting) {
 							((BooleanSetting)setting).setEnabled(Boolean.parseBoolean(args[3]));

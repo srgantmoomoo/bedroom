@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import net.minecraft.client.Keyboard;
 
@@ -15,7 +15,7 @@ public class MixinKeyboard {
 	private void onKeyEvent(long windowPointer, int key, int scanCode, int action, int modifiers, CallbackInfo callbackInfo) {
 
 		EventKeyPress event = new EventKeyPress(key, scanCode);
-		Main.EVENTBUS.post(event);
+		Bedroom.EVENTBUS.post(event);
 		if (event.isCancelled())
 			callbackInfo.cancel();
 	}

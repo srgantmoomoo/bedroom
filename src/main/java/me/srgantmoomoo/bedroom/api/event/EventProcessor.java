@@ -1,6 +1,6 @@
 package me.srgantmoomoo.bedroom.api.event;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.events.EventTick;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 import me.zero.alpine.listener.EventHandler;
@@ -20,7 +20,7 @@ public class EventProcessor implements Listenable {
 
 	public EventProcessor() {
 		instance = this;
-		Main.EVENTBUS.subscribe(this);
+		Bedroom.EVENTBUS.subscribe(this);
 	}
 	
 	@EventHandler

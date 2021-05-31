@@ -5,14 +5,9 @@ import java.util.List;
 
 import org.lwjgl.glfw.GLFW;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.module.Module.Category;
-import me.srgantmoomoo.bedroom.module.modules.combat.*;
-import me.srgantmoomoo.bedroom.module.modules.miscellaneous.*;
-import me.srgantmoomoo.bedroom.module.modules.movement.*;
-import me.srgantmoomoo.bedroom.module.modules.player.*;
-import me.srgantmoomoo.bedroom.module.modules.render.*;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
@@ -28,14 +23,8 @@ public class ModuleManager {
 	public static ArrayList<Module> modules;
 	
 	public ModuleManager() {
-		Main.EVENTBUS.subscribe(listener);
-		
+		Bedroom.EVENTBUS.subscribe(listener);
 		modules = new ArrayList<>();
-		ModuleManager.modules.add(new ExamplePlayerModule());
-		ModuleManager.modules.add(new ExampleRenderModule());
-		ModuleManager.modules.add(new ExampleCombatModule());
-		ModuleManager.modules.add(new ExampleMovementModule());
-		ModuleManager.modules.add(new ExampleMiscellaneousModule());
 	}
 	
 	public static void onUpdate() {
