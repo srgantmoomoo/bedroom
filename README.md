@@ -12,9 +12,8 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - JSON config
 - font renderer
 
-**plans for bedroom 3**
-- command javadoc <br>
-
+**bedroom 3**
+✔ command javadoc <br>
 ✔ main class tweaked a bit <br>
 ✔ fix module class... automatic event subscribing and event subscribing on launch fix <br>
 ✔ command sysetm overhaul <br>
