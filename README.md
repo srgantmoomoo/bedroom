@@ -12,7 +12,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - JSON config
 - font renderer
 
-**bedroom 3**
+**bedroom 3** <br>
 ✔ command javadoc <br>
 ✔ main class tweaked a bit <br>
 ✔ fix module class... automatic event subscribing and event subscribing on launch fix <br>
