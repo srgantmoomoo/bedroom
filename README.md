@@ -52,14 +52,14 @@ you have to create your own main class, within it make sure to implement `ModIni
 under your `onInitialize()` method, you have to do a few things to get bedroom started.
 first, you have to declare your mod variables... make sure these vairables are the same as the ones you use in your `fabric.mod.json` file.
 ```
-    Bedroom.variables.modid = "exampleModId";
-		Bedroom.variables.modname = "exampleModName";
-		Bedroom.variables.modversion = "0.0.1";
+Bedroom.variables.modid = "exampleModId";
+Bedroom.variables.modname = "exampleModName";
+edroom.variables.modversion = "0.0.1";
 ```
 than you have to declare two boolean values... these will decide if you want to include certain things from bedroom in your own client.
 ```
-    Bedroom.includes.includeDefaultCommands = true;
-		Bedroom.includes.includeUI = true;
+Bedroom.includes.includeDefaultCommands = true;
+Bedroom.includes.includeUI = true;
 ```
 finally, you can initialize bedroom using `Bedroom.init();`, you can also use these in their own method to keep it cleaner if you would like.
 
