@@ -1,26 +1,12 @@
-allprojects {
-	group = "me.srgantmoomoo"
-	version = "4"
-}
+group = "me.srgantmoomoo"
+version = "4"
 
 apply plugin: "java"
-
-sourceCompatibility = targetCompatibility = 1.8
-compileJava {
-    sourceCompatibility = targetCompatibility = 1.8
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-build.dependsOn sourcesJar
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile  "com.github.ZeroMemes:Alpine:1.9"
+    implementation  "com.github.ZeroMemes:Alpine:1.9"
 }
