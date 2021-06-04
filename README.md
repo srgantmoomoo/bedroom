@@ -1,8 +1,8 @@
 ![dddddd](https://user-images.githubusercontent.com/69589624/109410126-1623c480-7966-11eb-9bd4-56984a88a6aa.PNG)
                                                                  
-bedroom is a latest version fabric base for minecraft clients. this was made to serve as the base for beach house, i'm just making it public so others can use it and learn from it.<br>
+bedroom is a latest version fabric client api for minecraft. this was made to serve as the base for beach house, i'm just making it public so others can use it and learn from it.<br>
 <br>
-bedroom is intended for use as a latest version fabric base for minecraft anarchy clients, it can serve as a good starting tool and can have different aspects of it changed or added onto, like adding a more in depth command system, or adding some sort of your own ui elements, and of course you own modules. currently this base is in the format of a template, you can edit anything you like... but i plan on eventually converting it to more of a api for a future release.
+bedroom is intended for use as a latest version fabric base for minecraft anarchy clients, it can serve as a good starting tool for anyone to make the client they want.
 <br>
 <br> this is not a cheat. it's intent is for minecraft anarchy clients, and it's use for otherwise is redundant. either way bedroom itself is not a cheat, nor are it's intended targets. also, due to previous events, i would like to remind u that fabric is "free to use for everyone. No exceptions." thank you :)
 <br>
@@ -45,26 +45,36 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - boom... use
 
 ***main class*** <br>
-all you have to do in your main class is change the top few lines...
+you have to create your own main class, within it make sure to implement `ModInitializer` from fabric. <br>
+
+*you can use linkkkk as an example for a main class.*
+
+under your `onInitialize()` method, you have to do a few things to get bedroom started.
+first, you have to declare your mod variables... make sure these vairables are the same as the ones you use in your `fabric.mod.json` file.
 ```
-public static final String modid = "bed";
-public static final String name = "bedroom";
-public static final String nameCondensed = "bedroom";
-public static final String version = "1";
-  ```
-you can change the modid, name, nameCondensed, and version variables to fit your own clients, but you have to make sure to update your `fabric.mod.json file` to fit these variables, and update the `bed.mixins.json` if you want to redo the entire structure of the client.<br>
-you may also add different inits to the client under `public void clientInits() {` <br>
+Bedroom.variables.modid = "exampleModId";
+Bedroom.variables.modname = "exampleModName";
+edroom.variables.modversion = "0.0.1";
+```
+than you have to declare two boolean values... these will decide if you want to include certain things from bedroom in your own client.
+```
+Bedroom.includes.includeDefaultCommands = true;
+Bedroom.includes.includeUI = true;
+```
+finally, you can initialize bedroom using `Bedroom.init();`, you can also use these in their own method to keep it cleaner if you would like.
 
 ***command system*** <br>
-as for all of the systems here, you can use the current commands as examples. <br>
-- the prefix to start out is , (comma), u can simply type this in for help with all the commands while in game. <br>
-- to add a command, you have to use the `public void onCommand(String[] args, String command) {` method, also make sure to use the `@Override` annotation with this.
+you can use the current commands as examples. <br>
+- the prefix to start out is , (comma).<br>
+- to add a command, you have to use the `onCommand(String[] args, String command) {` method, also make sure to use the `@Override` annotation with this.
 - you can use the `args` to figure out if what is typed is what you want typed, for example, you can check if the args length is correct with `if(args.length > 0) {` (or whatever length you want). or you can check if the args is equal to a word that you want typed, like `if(moduleIn.equalsIgnoreCase(args[0])) {` (this is in the toggle command), this checks if what is typed in the first argument is equal to a module name.
-- the CommandManager includes two methods to help send messages to the chat that include `public static void addChatMessage(String message) {`, you can use this to send any message you would like, you can also use TextFormatting to change color mid text. and `public static void correctUsageMsg(String name, String syntax) {` simply sends a message that shows the usage of a command, u can use this if the args is less the or equal to 0, to show a player correct usage.
+- the CommandManager includes two methods to help send messages to the chat that include `addChatMessage(String message) {`, you can use this to send any message you would like, you can also use TextFormatting to change color mid text. and `correctUsageMsg(String name, String syntax) {` simply sends a message that shows the usage of a command, u can use this if the args is less the or equal to 0
 
 ***module system w/ settings*** <br>
-you can use the current modules as examples. <br>
-the ExampleRenderModule includes examples for the settings too. <br>
+you can use the ExampleModule as an example. <br>
+
+theres a few methods you need here, `onEnable()` will perform your code when the module is enabled, and `onDisable()` will perform your code when the module is disabled. <br>
+`onUpdate()` will preform your code every tick, for example, if you set sprinting true in `onUpdate`, sprinting will costantly be true. <br>
 
 ***events and mixins*** <br>
 most events and mixins tie into eachother here, so one good example you can use is the EventDrawOverlay events, which is posted in the MixinInGameHud mixin and used in the UI class, this is pretty much the simplest one i use. <br>
