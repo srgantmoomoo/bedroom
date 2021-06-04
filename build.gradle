@@ -20,3 +20,7 @@ build.dependsOn sourcesJar
 repositories {
     mavenCentral()
 }
+
+dependencies {
+    implementation  "com.github.ZeroMemes:Alpine:1.9"
+}
