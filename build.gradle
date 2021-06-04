@@ -5,6 +5,13 @@ apply plugin: "java"
 
 repositories {
     mavenCentral()
+
+    repositories {
+        maven {
+		    name = "jitpack.io"
+		    url = "https://jitpack.io"
+	    }
+    }-
 }
 
 dependencies {
