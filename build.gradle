@@ -22,5 +22,5 @@ repositories {
 }
 
 dependencies {
-    implementation  "com.github.ZeroMemes:Alpine:1.9"
+    compile  "com.github.ZeroMemes:Alpine:1.9"
 }
