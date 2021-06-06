@@ -22,6 +22,10 @@ import me.zero.alpine.bus.EventManager;
 public class Bedroom {
 	public static Bedroom INSTANCE;
 	
+	public Bedroom() {
+		INSTANCE = this;
+	}
+	
 	public static class variables {
 		public static String modid;
 		public static String modname;
@@ -44,10 +48,6 @@ public class Bedroom {
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
-	
-	public Bedroom() {
-		INSTANCE = this;
-	}
 	
 	public static Object syncronize = new Object();
 	public static void printLog(String text) {

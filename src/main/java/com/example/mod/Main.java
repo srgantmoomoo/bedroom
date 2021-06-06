@@ -7,8 +7,11 @@ import net.fabricmc.api.ModInitializer;
 
 public class Main implements ModInitializer {
 	
+	public static Bedroom bedroom;
+	
 	@Override
 	public void onInitialize() {
+		bedroom.INSTANCE.v
 		Bedroom.variables.modid = "bed";
 		Bedroom.variables.modname = "bedroom";
 		Bedroom.variables.modversion = "4";
