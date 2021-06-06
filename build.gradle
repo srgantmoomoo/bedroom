@@ -1,7 +1,10 @@
+  plugins {
+	id 'fabric-loom' version '0.6-SNAPSHOT'
+	id 'java'
+}
+
 group = "me.srgantmoomoo"
 version = "4"
-
-apply plugin: "java"
 
 repositories {
     mavenCentral()
