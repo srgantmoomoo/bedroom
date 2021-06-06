@@ -44,24 +44,30 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - type gradlew genSources
 - boom... use
 
+***gradle***
+add bedrom under your dependencies in your gradle file using `implementation "com.github.beach-house-development:bedroom:4-pre1"`.
+
 ***main class*** <br>
 you have to create your own main class, within it make sure to implement `ModInitializer` from fabric. <br>
 
 *you can use linkkkk as an example for a main class.*
 
-under your `onInitialize()` method, you have to do a few things to get bedroom started.
-first, you have to declare your mod variables... make sure these vairables are the same as the ones you use in your `fabric.mod.json` file.
 ```
-Bedroom.variables.modid = "exampleModId";
-Bedroom.variables.modname = "exampleModName";
-edroom.variables.modversion = "0.0.1";
+@Override
+public void onInitialize() {
+    // you first have to declare your mod variables, make sure these are the same as the ones used in your "fabric.mod.json" file.
+    Bedroom.variables.modid = "exampleModId";
+    Bedroom.variables.modname = "exampleModName";
+    Bedroom.variables.modversion = "0.0.1";
+
+    // declare two boolean values, these will decide if you want to include certain things from bedroom into your own client.
+    Bedroom.includes.includeDefaultCommands = true;
+    Bedroom.includes.includeUI = true;
+
+    // finally, initialize bedroom...
+    Bedroom.init();
+}
 ```
-than you have to declare two boolean values... these will decide if you want to include certain things from bedroom in your own client.
-```
-Bedroom.includes.includeDefaultCommands = true;
-Bedroom.includes.includeUI = true;
-```
-finally, you can initialize bedroom using `Bedroom.init();`, you can also use these in their own method to keep it cleaner if you would like.
 
 ***command system*** <br>
 you can use the current commands as examples. <br>
