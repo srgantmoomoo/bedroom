@@ -52,7 +52,7 @@ you have to create your own main class, within it make sure to implement `ModIni
 
 *you can use linkkkk as an example for a main class.*
 
-```
+```Java
 @Override
 public void onInitialize() {
     // you first have to declare your mod variables, make sure these are the same as the ones used in your "fabric.mod.json" file.
