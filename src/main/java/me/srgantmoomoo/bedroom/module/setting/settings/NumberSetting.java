@@ -1,6 +1,6 @@
 package me.srgantmoomoo.bedroom.module.setting.settings;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.setting.Setting;
 
@@ -33,8 +33,8 @@ public class NumberSetting extends Setting {
 	    //this.value = value;
 	    this.value = Math.round(Math.max(this.minimum, Math.min(this.maximum, value)) * precision) / precision;
 	    
-	    if(Main.saveLoad != null) {
-			Main.saveLoad.save();
+	    if(Bedroom.classes.saveLoad != null) {
+			Bedroom.classes.saveLoad.save();
 	    }
 	}
 	 

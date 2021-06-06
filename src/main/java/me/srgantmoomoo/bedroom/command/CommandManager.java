@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.srgantmoomoo.bedroom.command.commands.*;
@@ -28,8 +28,8 @@ public class CommandManager {
 	public boolean commandFound = false;
 	
 	public CommandManager() {
-		Main.EVENTBUS.subscribe(listener);
-		register();
+		Bedroom.EVENTBUS.subscribe(listener);
+		if(Bedroom.includes.includeDefaultCommands) register();
 	}
 	
 	public void register() {
@@ -73,8 +73,8 @@ public class CommandManager {
 	public static void setCommandPrefix(String pre) {
         prefix = pre;
         
-        if(Main.saveLoad != null) {
-			Main.saveLoad.save();
+        if(Bedroom.classes.saveLoad != null) {
+			Bedroom.classes.saveLoad.save();
 		}
     }
 	
@@ -84,7 +84,7 @@ public class CommandManager {
 	 */
 	@SuppressWarnings("resource")
 	public static void addChatMessage(String message) {
-		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + message;
+		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.variables.modname + TextFormatting.GRAY + ": " + message;
 		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
@@ -97,7 +97,7 @@ public class CommandManager {
 	@SuppressWarnings("resource")
 	public static void correctUsageMsg(String name, String syntax) {
 		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
-		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Main.name + TextFormatting.GRAY + ": " + usage;
+		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.variables.modname + TextFormatting.GRAY + ": " + usage;
 		
 		Text textComponentString = new LiteralText(message);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);

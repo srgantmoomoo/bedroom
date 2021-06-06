@@ -2,7 +2,7 @@ package me.srgantmoomoo.bedroom.ui;
 
 import java.util.Comparator;
 
-import me.srgantmoomoo.bedroom.Main;
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.events.EventDrawOverlay;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
@@ -20,13 +20,13 @@ public class UI {
 	private MinecraftClient mc = MinecraftClient.getInstance();
 
 	public UI() {
-		Main.EVENTBUS.subscribe(listener);
+		if(Bedroom.includes.includeUI) Bedroom.EVENTBUS.subscribe(listener);
 	}
 	
 	@EventHandler
 	private final Listener<EventDrawOverlay> listener = new Listener<>(e -> {
 		TextRenderer tr = mc.textRenderer;
-		tr.drawWithShadow(e.matrix, Main.name + " " + Main.version, 2, 2, 0xffffffff);
+		tr.drawWithShadow(e.matrix, Bedroom.variables.modname + " " + Bedroom.variables.modversion, 2, 2, 0xffffffff);
 		
 		int y = 1;
 		final int[] counter = { 1 };
