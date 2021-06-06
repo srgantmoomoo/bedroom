@@ -44,7 +44,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - type gradlew genSources
 - boom... use
 
-***gradle***
+***gradle*** <br>
 add bedrom under your dependencies in your gradle file using `implementation "com.github.beach-house-development:bedroom:4-pre1"`.
 
 ***main class*** <br>
