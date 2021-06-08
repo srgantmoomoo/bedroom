@@ -79,6 +79,8 @@ you can use the current commands as examples. <br>
 ***module system w/ settings*** <br>
 you can use the ExampleModule as an example. <br>
 
+to create a module class, just extend the class from Module.
+
 theres a few methods you need here, `onEnable()` will perform your code when the module is enabled, and `onDisable()` will perform your code when the module is disabled. <br>
 `onUpdate()` will preform your code every tick, for example, if you set sprinting true in `onUpdate`, sprinting will costantly be true. <br>
 
@@ -87,4 +89,8 @@ most events and mixins tie into eachother here, so one good example you can use 
 bedroom uses [Alpine 1.9](https://github.com/ZeroMemes/Alpine) for it's event system, you can use their own repo for further help on this, they explain it pretty well.
 
 # thanks v much <3
-please respect the license in this repo. this is a template repo making it easier to simply use the underlying template to edit however you like, or you can clone the repo and create your own repo, as long as this base is properly credited. 
+please respect the license in this repo.
+thank you to anyone who uses this :)
+also please check the projects that make this possible...
+[Fabric](https://github.com/FabricMC)
+[Alpine 1.9](https://github.com/ZeroMemes/Alpine)
