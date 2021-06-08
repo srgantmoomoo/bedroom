@@ -89,8 +89,7 @@ most events and mixins tie into eachother here, so one good example you can use 
 bedroom uses [Alpine 1.9](https://github.com/ZeroMemes/Alpine) for it's event system, you can use their own repo for further help on this, they explain it pretty well.
 
 # thanks v much <3
-please respect the license in this repo. <br>
-thank you to anyone who uses this :) <br>
+please respect the license in this repo!! and thank you to anyone who uses this :) <br>
 also please check the projects that make this possible... <br>
 [Fabric](https://github.com/FabricMC) <br>
 [Alpine 1.9](https://github.com/ZeroMemes/Alpine) <br>
