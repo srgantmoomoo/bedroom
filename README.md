@@ -8,7 +8,10 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 <br>
 # bedroom's road map
 **plans for bedroom 4**
-- make it a useable api via gradle
+- no static
+
+**plans for bedroom 4**
+✔ make it a useable api via gradle
 - JSON config
 - font renderer
 
