@@ -80,12 +80,10 @@ you can use the current commands as examples. <br>
 - the CommandManager includes two methods to help send messages to the chat that include `addChatMessage(String message) {`, you can use this to send any message you would like, you can also use TextFormatting to change color mid text. and `correctUsageMsg(String name, String syntax) {` simply sends a message that shows the usage of a command, u can use this if the args is less the or equal to 0
 
 ***module system w/ settings*** <br>
-you can use the ExampleModule as an example. <br>
-
 to create a module class, just extend the class from Module.
 
 theres a few methods you need here, `onEnable()` will perform your code when the module is enabled, and `onDisable()` will perform your code when the module is disabled. <br>
-`onUpdate()` will preform your code every tick, for example, if you set sprinting true in `onUpdate`, sprinting will costantly be true. <br>
+`onUpdate()` will preform your code every tick, for example, if you set sprinting true in `onUpdate`, sprinting will costantly be true. make sure to use `@Override` above these methods. <br>
 
 ***events and mixins*** <br>
 most events and mixins tie into eachother here, so one good example you can use is the EventDrawOverlay events, which is posted in the MixinInGameHud mixin and used in the UI class, this is pretty much the simplest one i use. <br>
