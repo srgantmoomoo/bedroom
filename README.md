@@ -10,7 +10,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 **plans for bedroom 4**
 - no static
 
-**plans for bedroom 4**
+**plans for bedroom 4** <br>
 ✔ make it a useable api via gradle
 - JSON config
 - font renderer
