@@ -7,8 +7,11 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 <br> this is not a cheat. it's intent is for minecraft anarchy clients, and it's use for otherwise is redundant. either way bedroom itself is not a cheat, nor are it's intended targets. also, due to previous events, i would like to remind u that fabric is "free to use for everyone. No exceptions." thank you :)
 <br>
 # bedroom's road map
-**plans for bedroom 4**
-- make it a useable api via gradle
+**plans for bedroom 5**
+- no static
+
+**plans for bedroom 4** <br>
+✔ make it a useable api via gradle
 - JSON config
 - font renderer
 
@@ -44,7 +47,7 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 - type gradlew genSources
 - boom... use
 
-***gradle***
+***gradle*** <br>
 add bedrom under your dependencies in your gradle file using `implementation "com.github.beach-house-development:bedroom:4-pre1"`.
 
 ***main class*** <br>
@@ -52,7 +55,7 @@ you have to create your own main class, within it make sure to implement `ModIni
 
 *you can use linkkkk as an example for a main class.*
 
-```
+```Java
 @Override
 public void onInitialize() {
     // you first have to declare your mod variables, make sure these are the same as the ones used in your "fabric.mod.json" file.
@@ -79,6 +82,8 @@ you can use the current commands as examples. <br>
 ***module system w/ settings*** <br>
 you can use the ExampleModule as an example. <br>
 
+to create a module class, just extend the class from Module.
+
 theres a few methods you need here, `onEnable()` will perform your code when the module is enabled, and `onDisable()` will perform your code when the module is disabled. <br>
 `onUpdate()` will preform your code every tick, for example, if you set sprinting true in `onUpdate`, sprinting will costantly be true. <br>
 
@@ -87,4 +92,7 @@ most events and mixins tie into eachother here, so one good example you can use 
 bedroom uses [Alpine 1.9](https://github.com/ZeroMemes/Alpine) for it's event system, you can use their own repo for further help on this, they explain it pretty well.
 
 # thanks v much <3
-please respect the license in this repo. this is a template repo making it easier to simply use the underlying template to edit however you like, or you can clone the repo and create your own repo, as long as this base is properly credited. 
+please respect the license in this repo!! and thank you to anyone who uses this :) <br>
+also please check the projects that make this possible... <br>
+[Fabric](https://github.com/FabricMC) <br>
+[Alpine 1.9](https://github.com/ZeroMemes/Alpine) <br>
