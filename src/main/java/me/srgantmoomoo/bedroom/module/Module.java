@@ -18,7 +18,7 @@ import net.minecraft.client.MinecraftClient;
 
 public class Module implements Listenable {
 	
-	public static final MinecraftClient mc = MinecraftClient.getInstance();
+	public static MinecraftClient mc = MinecraftClient.getInstance();
 	public static ArrayList<Module> modules;
 	
 	public String name, description;

@@ -5,9 +5,9 @@ import net.minecraft.client.util.math.MatrixStack;
 
 public class EventDrawOverlay extends Event {
 
-	public static MatrixStack matrix;
+	public MatrixStack matrix;
 
 	public EventDrawOverlay(MatrixStack matrix) {
-		EventDrawOverlay.matrix = matrix;
+		this.matrix = matrix;
 	}
 }
