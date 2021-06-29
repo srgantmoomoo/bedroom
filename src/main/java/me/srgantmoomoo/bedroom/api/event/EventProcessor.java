@@ -16,7 +16,6 @@ import net.minecraft.client.MinecraftClient;
 public class EventProcessor implements Listenable {
 	
 	public static EventProcessor instance;
-	MinecraftClient mc = MinecraftClient.getInstance();
 
 	public EventProcessor() {
 		instance = this;
@@ -25,7 +24,7 @@ public class EventProcessor implements Listenable {
 	
 	@EventHandler
 	private final Listener<EventTick> listener = new Listener<>(e -> {
-		if (mc.player != null) {
+		if (MinecraftClient.getInstance().player != null) {
 			ModuleManager.onUpdate();
 		}
 	});
