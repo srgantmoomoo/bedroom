@@ -4,16 +4,15 @@ plugins {
 }
 
 group = "me.srgantmoomoo"
-version = "4-pre8"
+version = "4-pre9"
 
 repositories {
     mavenCentral()
-
     repositories {
         maven {
-	    name = "jitpack.io"
-	    url = "https://jitpack.io"
-	}
+            name = "jitpack.io"
+            url = "https://jitpack.io"
+        }
     }
 }
 

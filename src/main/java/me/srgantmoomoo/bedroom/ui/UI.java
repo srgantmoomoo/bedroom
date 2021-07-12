@@ -17,7 +17,6 @@ import net.minecraft.client.font.TextRenderer;
  */
 
 public class UI {
-	private MinecraftClient mc = MinecraftClient.getInstance();
 
 	public UI() {
 		if(Bedroom.includes.includeUI) Bedroom.EVENTBUS.subscribe(listener);
@@ -25,7 +24,7 @@ public class UI {
 
 	@EventHandler
 	private final Listener<EventDrawOverlay> listener = new Listener<>(e -> {
-		TextRenderer tr = mc.textRenderer;
+		TextRenderer tr = MinecraftClient.getInstance().textRenderer;
 		tr.drawWithShadow(e.matrix, Bedroom.variables.modname + " " + Bedroom.variables.modversion, 2, 2, 0xffffffff);
 	});
 

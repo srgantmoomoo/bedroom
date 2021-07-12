@@ -29,7 +29,7 @@ public class CommandManager {
 	
 	public CommandManager() {
 		Bedroom.EVENTBUS.subscribe(listener);
-		register();
+		if(Bedroom.includes.includeDefaultCommands) register();
 	}
 	
 	public void register() {
