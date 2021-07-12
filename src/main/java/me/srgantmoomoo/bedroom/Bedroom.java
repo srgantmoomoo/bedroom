@@ -75,7 +75,7 @@ public class Bedroom {
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
 		
-		commandManager = new CommandManager();
+		//commandManager = new CommandManager();
 		printLog("command system initialized.");
 		
 		moduleManager = new ModuleManager();
