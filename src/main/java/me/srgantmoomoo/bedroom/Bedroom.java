@@ -36,15 +36,13 @@ public class Bedroom {
 		public static boolean includeDefaultCommands;
 		public static boolean includeUI;	
 	}
-	
-	public static class classes {
-		public static UI ui;
-		public static ModuleManager moduleManager;
-		public static SettingManager settingManager;
-		public static SaveLoad saveLoad;
-		public static EventProcessor eventProcessor;
-		public static CommandManager commandManager;
-	}
+
+	public static UI ui;
+	public static ModuleManager moduleManager;
+	public static SettingManager settingManager;
+	public static SaveLoad saveLoad;
+	public static EventProcessor eventProcessor;
+	public static CommandManager commandManager;
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
@@ -74,22 +72,22 @@ public class Bedroom {
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
 		
-		classes.eventProcessor = new EventProcessor();
+		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
 		
-		classes.commandManager = new CommandManager();
+		commandManager = new CommandManager();
 		printLog("command system initialized.");
 		
-		classes.moduleManager = new ModuleManager();
+		moduleManager = new ModuleManager();
 		printLog("module system initialized.");
 		
-		classes.settingManager = new SettingManager();
+		settingManager = new SettingManager();
 		printLog("setting system initialized.");
 
-		classes.ui = new UI();
+		ui = new UI();
 		printLog("ui initialized.");
 		
-		classes.saveLoad = new SaveLoad();
+		saveLoad = new SaveLoad();
 		printLog("config initialized.");
 	}
 

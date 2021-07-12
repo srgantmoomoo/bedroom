@@ -16,7 +16,7 @@ public class ModuleList extends Command {
 	@Override
 	public void onCommand(String[] args, String command) {
 		if(args.length == 0) {
-			for(Module module : Bedroom.classes.moduleManager.getModules()) {
+			for(Module module : Bedroom.moduleManager.getModules()) {
 				CommandManager.addChatMessage(TextFormatting.WHITE + module.getCategory().name + ": " + TextFormatting.GRAY + module.getName());
 			}
 		} if(args.length > 0) CommandManager.correctUsageMsg(name, syntax);

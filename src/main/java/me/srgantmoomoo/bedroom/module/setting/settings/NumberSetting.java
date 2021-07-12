@@ -33,8 +33,8 @@ public class NumberSetting extends Setting {
 	    //this.value = value;
 	    this.value = Math.round(Math.max(this.minimum, Math.min(this.maximum, value)) * precision) / precision;
 	    
-	    if(Bedroom.classes.saveLoad != null) {
-			Bedroom.classes.saveLoad.save();
+	    if(Bedroom.saveLoad != null) {
+			Bedroom.saveLoad.save();
 	    }
 	}
 	 

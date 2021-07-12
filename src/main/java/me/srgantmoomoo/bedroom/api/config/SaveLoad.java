@@ -101,15 +101,15 @@ public class SaveLoad {
 		for(String s : lines) {
 			String[] args = s.split(":");
 			if(s.toLowerCase().startsWith("mod:")) {
-				Module m = Bedroom.classes.moduleManager.getModule(args[1]);
+				Module m = Bedroom.moduleManager.getModule(args[1]);
 				if(m != null) {
 					m.setEnabled(Boolean.parseBoolean(args[2]));
 					m.setKey(Integer.parseInt(args[3]));
 				}
 			}else if(s.toLowerCase().startsWith("set:")) {
-				Module m = Bedroom.classes.moduleManager.getModule(args[1]);
+				Module m = Bedroom.moduleManager.getModule(args[1]);
 				if(m != null) {
-					Setting setting = Bedroom.classes.settingManager.getSettingByName(m, args[2]);
+					Setting setting = Bedroom.settingManager.getSettingByName(m, args[2]);
 					if(setting != null) {
 						if(setting instanceof BooleanSetting) {
 							((BooleanSetting)setting).setEnabled(Boolean.parseBoolean(args[3]));

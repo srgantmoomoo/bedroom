@@ -28,8 +28,8 @@ public class Setting extends Command {
         String moduleName = args[0];
         String settingName = args[1];
         String inputValue = args[2];
-        Module module = Bedroom.classes.moduleManager.getModuleByID(moduleName);
-        me.srgantmoomoo.bedroom.module.setting.Setting setting = Bedroom.classes.settingManager.getSettingByName(module, settingName);
+        Module module = Bedroom.moduleManager.getModuleByID(moduleName);
+        me.srgantmoomoo.bedroom.module.setting.Setting setting = Bedroom.settingManager.getSettingByName(module, settingName);
 
         if(module == null) {
             CommandManager.addChatMessage("the module " + RED + moduleName + GRAY + " does not exist dumfuck.");

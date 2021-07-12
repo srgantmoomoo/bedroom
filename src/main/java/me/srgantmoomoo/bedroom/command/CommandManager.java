@@ -29,7 +29,7 @@ public class CommandManager {
 	
 	public CommandManager() {
 		Bedroom.EVENTBUS.subscribe(listener);
-		if(Bedroom.includes.includeDefaultCommands) register();
+		register();
 	}
 	
 	public void register() {
@@ -74,8 +74,8 @@ public class CommandManager {
 	public static void setCommandPrefix(String pre) {
         prefix = pre;
         
-        if(Bedroom.classes.saveLoad != null) {
-			Bedroom.classes.saveLoad.save();
+        if(Bedroom.saveLoad != null) {
+			Bedroom.saveLoad.save();
 		}
     }
 	

@@ -81,8 +81,8 @@ public class Module implements Listenable {
 	public void setKey(int key) {
 		this.keyCode.code = key;
 		
-		 if(Bedroom.classes.saveLoad != null) {
-				Bedroom.classes.saveLoad.save();
+		 if(Bedroom.saveLoad != null) {
+				Bedroom.saveLoad.save();
 		 }
 	} 
 	
@@ -94,8 +94,8 @@ public class Module implements Listenable {
 			disable();
 		}
 		
-		if(Bedroom.classes.saveLoad != null) {
-			Bedroom.classes.saveLoad.save();
+		if(Bedroom.saveLoad != null) {
+			Bedroom.saveLoad.save();
 		}
 	}
 	
@@ -111,8 +111,8 @@ public class Module implements Listenable {
 			Bedroom.EVENTBUS.unsubscribe(this);
 		}
 		
-		if(Bedroom.classes.saveLoad != null) {
-			Bedroom.classes.saveLoad.save();
+		if(Bedroom.saveLoad != null) {
+			Bedroom.saveLoad.save();
 		}
 	}
 	
