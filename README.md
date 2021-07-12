@@ -40,6 +40,8 @@ bedroom is intended for use as a latest version fabric base for minecraft anarch
 ✔ ui stuff <br>
 <br>
 # use of bedroom
+**this readme section is dedicated to use of the bedroom 4 api, if you are using bedroom 3, it's quite a bit different :P, sorry but stuff will be a little messy here until i get bedroom 4 fully working.**
+
 ***for eclipse*** <br>
 - drag .zip release to a new folder
 - open folder in cmd
