@@ -1,5 +1,6 @@
 package me.srgantmoomoo.bedroom.command.commands;
 
+import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.srgantmoomoo.bedroom.command.Command;
 import me.srgantmoomoo.bedroom.command.CommandManager;
@@ -15,7 +16,7 @@ public class ModuleList extends Command {
 	@Override
 	public void onCommand(String[] args, String command) {
 		if(args.length == 0) {
-			for(Module module : ModuleManager.getModules()) {
+			for(Module module : Bedroom.classes.moduleManager.getModules()) {
 				CommandManager.addChatMessage(TextFormatting.WHITE + module.getCategory().name + ": " + TextFormatting.GRAY + module.getName());
 			}
 		} if(args.length > 0) CommandManager.correctUsageMsg(name, syntax);

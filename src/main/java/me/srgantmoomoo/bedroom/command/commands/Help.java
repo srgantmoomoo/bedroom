@@ -14,58 +14,63 @@ public class Help extends Command {
 	public Help() {
 		super("help", "helps u penis.", "help", "h");
 	}
-	
+
+	TextFormatting LIGHT_PURPLE = TextFormatting.LIGHT_PURPLE;
+	TextFormatting GRAY = TextFormatting.GRAY;
+	TextFormatting AQUA = TextFormatting.AQUA;
+	TextFormatting BOLD = TextFormatting.BOLD;
+	TextFormatting ITALIC = TextFormatting.ITALIC;
+
 	public static Prefix prefix;
 	public static Toggle toggle;
+	public static Setting setting;
 	public static ModuleList moduleList;
 
 	@Override
 	public void onCommand(String[] args, String command) {
+		if(args.length != 0) {
+			CommandManager.correctUsageMsg(name, syntax);
+			return;
+		}
+
 		prefix = new Prefix();
 		toggle = new Toggle();
+		setting = new Setting();
 		moduleList = new ModuleList();
-		
+
 		welcomeMessage();
 		helpMessage(prefix.getName(), prefix.getDescription(), prefix.getSyntax());
 		helpMessage(toggle.getName(), toggle.getDescription(), toggle.getSyntax());
 		helpMessage(moduleList.getName(), moduleList.getDescription(), moduleList.getSyntax());
+		helpMessage(setting.getName(), setting.getDescription(), setting.getSyntax());
 		goodbyeMessage();
 	}
-	
+
 	private void helpMessage(String commandName, String commandDesc, String commandSyntax) {
-		String starter = TextFormatting.LIGHT_PURPLE + commandName + TextFormatting.GRAY + " - " + commandDesc;
+		String starter = LIGHT_PURPLE + commandName + GRAY + " - " + commandDesc;
 		String syntaxMessage = " [" + CommandManager.prefix + commandSyntax + "]";
-		
-		String message = starter;
-		
-		Text textComponentString = new LiteralText(message);
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
-		Text syntaxTextComponentString = new LiteralText(syntaxMessage);
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(syntaxTextComponentString);
+
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(starter));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(syntaxMessage));
 	}
-	
+
 	private void welcomeMessage() {
-		String welcomeString = TextFormatting.GRAY + "" + TextFormatting.BOLD + Bedroom.variables.modname + " " + Bedroom.variables.modversion + "!";
-		String bedroom = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.variables.modname;
+		String welcomeString = GRAY + "" + BOLD + Bedroom.variables.modname + " " + Bedroom.variables.modversion + "!";
 		String nothing = " ";
-		
-		Text textComponentString = new LiteralText(welcomeString);
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
-		Text nothingTextComponentString = new LiteralText(nothing);
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(nothingTextComponentString);
-		Text bedroomTextComponentString = new LiteralText(bedroom);
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(bedroomTextComponentString);
-		
+		String atClientName = AQUA + "@" + ITALIC + Bedroom.variables.modname;
+
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(welcomeString));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(nothing));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(atClientName));
+
 	}
-	
+
 	private void goodbyeMessage() {
-		String uwu = TextFormatting.GRAY + "" + TextFormatting.BOLD + "uwu" + TextFormatting.AQUA + " ~";
+		String uwu = GRAY + "" + BOLD + "uwu" + AQUA + " ~";
 		String nothing = " ";
-				
-		Text nothingTextComponentString = new LiteralText(nothing);
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(nothingTextComponentString);
-		Text textComponentString = new LiteralText(uwu);
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
+
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(nothing));
+		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(uwu));
 	}
 
 }

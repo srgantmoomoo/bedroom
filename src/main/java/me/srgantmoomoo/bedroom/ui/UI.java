@@ -22,22 +22,11 @@ public class UI {
 	public UI() {
 		if(Bedroom.includes.includeUI) Bedroom.EVENTBUS.subscribe(listener);
 	}
-	
+
 	@EventHandler
 	private final Listener<EventDrawOverlay> listener = new Listener<>(e -> {
 		TextRenderer tr = mc.textRenderer;
 		tr.drawWithShadow(e.matrix, Bedroom.variables.modname + " " + Bedroom.variables.modversion, 2, 2, 0xffffffff);
-		
-		int y = 1;
-		final int[] counter = { 1 };
-		for (Module module : ModuleManager.getModules()) {
-			if (module.isEnabled()) {
-					tr.drawWithShadow(e.matrix, module.getName(), 2, 10 + y, 0x80808080);
-				y += tr.fontHeight;
-				counter[0]++;
-			}
-		}
-		ModuleManager.modules.sort(Comparator.comparing(module -> -mc.textRenderer.getWidth(module.getName())));
 	});
 
 }

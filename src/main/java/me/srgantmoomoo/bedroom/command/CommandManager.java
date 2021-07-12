@@ -37,6 +37,7 @@ public class CommandManager {
 		commands.add(new Help());
 		commands.add(new Prefix());
 		commands.add(new ModuleList());
+		commands.add(new Setting());
 	}
 	
 	public static void callCommandReturn(String input) {
