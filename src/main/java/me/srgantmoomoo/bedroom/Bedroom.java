@@ -1,5 +1,6 @@
 package me.srgantmoomoo.bedroom;
 
+import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,6 +14,8 @@ import me.srgantmoomoo.bedroom.module.setting.SettingManager;
 import me.srgantmoomoo.bedroom.ui.UI;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
+
+import java.io.File;
 
 /** 
  * @author SrgantMooMoo
@@ -61,6 +64,8 @@ public class Bedroom {
 	public static void addCommand(Command command) {
 		CommandManager.commands.add(command);
 	}
+
+	public File directory = MinecraftClient.getInstance().runDirectory;
 	
 	public static void init() {
 		printLog("welcome to bedroom!");

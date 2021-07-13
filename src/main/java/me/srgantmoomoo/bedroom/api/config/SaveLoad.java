@@ -28,8 +28,8 @@ public class SaveLoad {
 	private File dataFile;
 	
 	@SuppressWarnings("resource")
-	public SaveLoad() {
-		dir = new File(MinecraftClient.getInstance().runDirectory, Bedroom.variables.modname);
+	public SaveLoad() {;
+		dir = new File(Bedroom.INSTANCE.directory, Bedroom.variables.modname);
 		if(!dir.exists()) {
 			dir.mkdir();
 		}
