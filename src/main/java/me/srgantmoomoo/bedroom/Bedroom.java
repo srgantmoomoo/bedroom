@@ -31,11 +31,11 @@ public class Bedroom {
 	public String modname = "default";
 	public String modversion = "1";
 
-	public ModuleManager moduleManager;
-	public SettingManager settingManager;
+	public static ModuleManager moduleManager;
+	public static SettingManager settingManager;
 	public static SaveLoad saveLoad;
-	public EventProcessor eventProcessor;
-	public CommandManager commandManager;
+	public static EventProcessor eventProcessor;
+	public static CommandManager commandManager;
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
@@ -65,16 +65,16 @@ public class Bedroom {
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
 		
-		Bedroom.INSTANCE.eventProcessor = new EventProcessor();
+		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
 
-		Bedroom.INSTANCE.commandManager = new CommandManager();
+		commandManager = new CommandManager();
 		printLog("command system initialized.");
 
-		Bedroom.INSTANCE.moduleManager = new ModuleManager();
+		moduleManager = new ModuleManager();
 		printLog("module system initialized.");
 
-		Bedroom.INSTANCE.settingManager = new SettingManager();
+		settingManager = new SettingManager();
 		printLog("setting system initialized.");
 		
 		saveLoad = new SaveLoad();

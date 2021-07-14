@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "me.srgantmoomoo"
-version = "4-pre11"
+version = "4-pre12"
 
 repositories {
     mavenCentral()
