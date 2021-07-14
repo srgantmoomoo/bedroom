@@ -11,7 +11,6 @@ import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.ModuleManager;
 import me.srgantmoomoo.bedroom.module.setting.SettingManager;
-import me.srgantmoomoo.bedroom.ui.UI;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
 
@@ -28,24 +27,15 @@ public class Bedroom {
 	public Bedroom() {
 		INSTANCE = this;
 	}
-	
-	public static class variables {
-		public static String modid;
-		public static String modname;
-		public static String modversion;	
-	}
-	
-	public static class includes {
-		public static boolean includeDefaultCommands;
-		public static boolean includeUI;	
-	}
+	public String modid = "def";
+	public String modname = "default";
+	public String modversion = "1";
 
-	public static UI ui;
-	public static ModuleManager moduleManager;
-	public static SettingManager settingManager;
+	public ModuleManager moduleManager;
+	public SettingManager settingManager;
 	public static SaveLoad saveLoad;
-	public static EventProcessor eventProcessor;
-	public static CommandManager commandManager;
+	public EventProcessor eventProcessor;
+	public CommandManager commandManager;
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
@@ -57,15 +47,13 @@ public class Bedroom {
 		}
 	}
 	
-	public static void addModule(Module module) {
+	public void addModule(Module module) {
 		ModuleManager.modules.add(module);
 	}
 	
-	public static void addCommand(Command command) {
+	public void addCommand(Command command) {
 		CommandManager.commands.add(command);
 	}
-
-	public File directory = MinecraftClient.getInstance().runDirectory;
 	
 	public static void init() {
 		printLog("welcome to bedroom!");
@@ -77,20 +65,17 @@ public class Bedroom {
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
 		
-		eventProcessor = new EventProcessor();
+		Bedroom.INSTANCE.eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
-		
-		//commandManager = new CommandManager();
-		printLog("command system initialized.");
-		
-		moduleManager = new ModuleManager();
-		printLog("module system initialized.");
-		
-		settingManager = new SettingManager();
-		printLog("setting system initialized.");
 
-		ui = new UI();
-		printLog("ui initialized.");
+		Bedroom.INSTANCE.commandManager = new CommandManager();
+		printLog("command system initialized.");
+
+		Bedroom.INSTANCE.moduleManager = new ModuleManager();
+		printLog("module system initialized.");
+
+		Bedroom.INSTANCE.settingManager = new SettingManager();
+		printLog("setting system initialized.");
 		
 		saveLoad = new SaveLoad();
 		printLog("config initialized.");

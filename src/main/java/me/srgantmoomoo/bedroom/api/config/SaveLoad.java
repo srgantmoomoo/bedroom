@@ -29,7 +29,7 @@ public class SaveLoad {
 	
 	@SuppressWarnings("resource")
 	public SaveLoad() {;
-		dir = new File(Bedroom.INSTANCE.directory, Bedroom.variables.modname);
+		dir = new File(MinecraftClient.getInstance().runDirectory, Bedroom.INSTANCE.modname);
 		if(!dir.exists()) {
 			dir.mkdir();
 		}
@@ -101,15 +101,15 @@ public class SaveLoad {
 		for(String s : lines) {
 			String[] args = s.split(":");
 			if(s.toLowerCase().startsWith("mod:")) {
-				Module m = Bedroom.moduleManager.getModule(args[1]);
+				Module m = Bedroom.INSTANCE.moduleManager.getModule(args[1]);
 				if(m != null) {
 					m.setEnabled(Boolean.parseBoolean(args[2]));
 					m.setKey(Integer.parseInt(args[3]));
 				}
 			}else if(s.toLowerCase().startsWith("set:")) {
-				Module m = Bedroom.moduleManager.getModule(args[1]);
+				Module m = Bedroom.INSTANCE.moduleManager.getModule(args[1]);
 				if(m != null) {
-					Setting setting = Bedroom.settingManager.getSettingByName(m, args[2]);
+					Setting setting = Bedroom.INSTANCE.settingManager.getSettingByName(m, args[2]);
 					if(setting != null) {
 						if(setting instanceof BooleanSetting) {
 							((BooleanSetting)setting).setEnabled(Boolean.parseBoolean(args[3]));

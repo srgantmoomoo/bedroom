@@ -7,7 +7,6 @@ import java.util.List;
 import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
-import me.srgantmoomoo.bedroom.command.commands.*;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
@@ -29,15 +28,9 @@ public class CommandManager {
 	
 	public CommandManager() {
 		Bedroom.EVENTBUS.subscribe(listener);
-		if(Bedroom.includes.includeDefaultCommands) register();
 	}
 	
 	public void register() {
-		commands.add(new Toggle());
-		commands.add(new Help());
-		commands.add(new Prefix());
-		commands.add(new ModuleList());
-		commands.add(new Setting());
 	}
 	
 	public static void callCommandReturn(String input) {
@@ -85,7 +78,7 @@ public class CommandManager {
 	 */
 	@SuppressWarnings("resource")
 	public static void addChatMessage(String message) {
-		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.variables.modname + TextFormatting.GRAY + ": " + message;
+		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + message;
 		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
@@ -98,7 +91,7 @@ public class CommandManager {
 	@SuppressWarnings("resource")
 	public static void correctUsageMsg(String name, String syntax) {
 		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
-		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.variables.modname + TextFormatting.GRAY + ": " + usage;
+		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + usage;
 		
 		Text textComponentString = new LiteralText(message);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
