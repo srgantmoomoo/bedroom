@@ -44,6 +44,7 @@ public abstract class Module implements Listenable {
 	public enum Category {
 		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous"), BEACHHOUSE("beach house");
 		public String name;
+		public int moduleIndex;
 		
 		Category(String name) {
 			this.name = name;

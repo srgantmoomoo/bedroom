@@ -55,22 +55,11 @@ add bedrom under your dependencies in your gradle file using `implementation "co
 ***main class*** <br>
 you have to create your own main class, within it make sure to implement `ModInitializer` from fabric. <br>
 
-*you can use linkkkk as an example for a main class.*
-
 ```Java
 @Override
 public void onInitialize() {
-    // you first have to declare your mod variables, make sure these are the same as the ones used in your "fabric.mod.json" file.
-    Bedroom.variables.modid = "exampleModId";
-    Bedroom.variables.modname = "exampleModName";
-    Bedroom.variables.modversion = "0.0.1";
-
-    // declare two boolean values, these will decide if you want to include certain things from bedroom into your own client.
-    Bedroom.includes.includeDefaultCommands = true;
-    Bedroom.includes.includeUI = true;
-
-    // finally, initialize bedroom...
-    Bedroom.init();
+    // all you have to do is initialize bedroom along with your variables.
+    Bedroom.init(modid, modname, modversion);
 }
 ```
 
