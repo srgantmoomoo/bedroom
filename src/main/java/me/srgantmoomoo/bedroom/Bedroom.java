@@ -29,7 +29,6 @@ public abstract class Bedroom {
 	
 	public Bedroom() {
 		INSTANCE = this;
-		Bedroom.EVENTBUS.subscribe(commandListener);
 	}
 
 	public static ModuleManager moduleManager;
@@ -94,13 +93,5 @@ public abstract class Bedroom {
 		//saveLoad = new SaveLoad();
 		//printLog("config initialized.");
 	}
-
-	@EventHandler
-	private final Listener<EventKeyPress> commandListener = new Listener<>(e -> {
-		if(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), CommandManager.prefix.charAt(0)))
-			if (CommandManager.prefix.length() == 1) {
-				MinecraftClient.getInstance().openScreen(new ChatScreen(""));
-			}
-	});
 
 }

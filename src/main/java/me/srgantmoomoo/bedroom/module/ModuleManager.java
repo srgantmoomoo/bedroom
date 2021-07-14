@@ -3,6 +3,8 @@ package me.srgantmoomoo.bedroom.module;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.srgantmoomoo.bedroom.command.CommandManager;
+import net.minecraft.client.gui.screen.ChatScreen;
 import org.lwjgl.glfw.GLFW;
 
 import me.srgantmoomoo.bedroom.Bedroom;
@@ -69,6 +71,11 @@ public class ModuleManager {
 
 	@EventHandler
 	private final Listener<EventKeyPress> listener = new Listener<>(e -> {
+		if(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), CommandManager.prefix.charAt(0)))
+			if (CommandManager.prefix.length() == 1) {
+				MinecraftClient.getInstance().openScreen(new ChatScreen(""));
+			}
+
 		if (InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), GLFW.GLFW_KEY_F3))
 			return;
 
