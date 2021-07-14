@@ -62,17 +62,9 @@ public class ModuleManager {
 		List<Module> modules = new ArrayList<Module>();
 
 		for(Module m : ModuleManager.modules) {
-			if(!m.getName().equals("Esp2dHelper")) {
 				if(m.getCategory() == c)
 					modules.add(m);
-			}
-		}
-		return modules;
-	}
-
-	public Module getModuleByName(String name) {
-		Module m = modules.stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
-		return m;
+		} return modules;
 	}
 
 	@EventHandler

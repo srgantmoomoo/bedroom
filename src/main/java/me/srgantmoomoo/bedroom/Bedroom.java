@@ -33,14 +33,14 @@ public abstract class Bedroom {
 	
 	public static final Logger LOGGER = LogManager.getLogger("bedroom");
 	public static EventBus EVENTBUS = new EventManager();
-	
-	public static Object syncronize = new Object();
+
+	public static final Object syncronize = new Object();
 	public static void printLog(String text) {
 		synchronized (syncronize) {
 			LOGGER.info(text);
 		}
 	}
-	
+
 	public void addModule(Module module) {
 		ModuleManager.modules.add(module);
 	}

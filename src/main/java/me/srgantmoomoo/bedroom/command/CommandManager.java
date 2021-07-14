@@ -24,13 +24,12 @@ public class CommandManager {
 	
 	public static List<Command> commands = new ArrayList<Command>();
 	public static String prefix = ",";
-	public boolean commandFound = false;
 	
 	public CommandManager() {
-		Bedroom.EVENTBUS.subscribe(listener);
+		//Bedroom.EVENTBUS.subscribe(listener);
 	}
 	
-	public static void callCommandReturn(String input) {
+	/*public static void callCommandReturn(String input) {
         String message = input;
         
         if(!message.startsWith(prefix))
@@ -73,8 +72,8 @@ public class CommandManager {
 	 * send a client side chat message with a prefix to the minecraft chat.
 	 * @param message
 	 */
-	@SuppressWarnings("resource")
-	public static void addChatMessage(String message) {
+
+	/*public static void addChatMessage(String message) {
 		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + message;
 		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
@@ -85,13 +84,13 @@ public class CommandManager {
 	 * @param name
 	 * @param syntax
 	 */
-	@SuppressWarnings("resource")
-	public static void correctUsageMsg(String name, String syntax) {
+
+	/*public static void correctUsageMsg(String name, String syntax) {
 		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
 		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + usage;
 		
 		Text textComponentString = new LiteralText(message);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
-	
+	*/
 }
