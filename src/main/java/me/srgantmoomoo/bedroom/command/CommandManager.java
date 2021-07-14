@@ -22,8 +22,13 @@ import net.minecraft.text.Text;
 
 public class CommandManager {
 
-	public static List<Command> commands = new ArrayList<Command>();
+	public static List<Command> commands;
 	public static String prefix = ",";
+
+	public CommandManager() {
+		Bedroom.EVENTBUS.subscribe(listener);
+		commands = new ArrayList<Command>();
+	}
 
 	public static void callCommandReturn(String input) {
         String message = input;
@@ -47,6 +52,14 @@ public class CommandManager {
         	}
         }
     }
+
+	@EventHandler
+	private final Listener<EventKeyPress> listener = new Listener<>(e -> {
+		if(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), prefix.charAt(0)))
+		if (prefix.length() == 1) {
+                MinecraftClient.getInstance().openScreen(new ChatScreen(""));
+            }
+	});
 
 	public static void setCommandPrefix(String pre) {
 		prefix = pre;
