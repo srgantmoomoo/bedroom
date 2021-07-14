@@ -29,7 +29,7 @@ public class SaveLoad {
 	
 	@SuppressWarnings("resource")
 	public SaveLoad() {;
-		dir = new File(MinecraftClient.getInstance().runDirectory, "config");
+		dir = new File(MinecraftClient.getInstance().runDirectory, Bedroom.modname);
 		if(!dir.exists()) {
 			dir.mkdir();
 		}

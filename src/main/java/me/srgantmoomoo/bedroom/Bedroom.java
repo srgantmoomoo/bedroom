@@ -1,5 +1,11 @@
 package me.srgantmoomoo.bedroom;
 
+import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
+import me.zero.alpine.listener.EventHandler;
+import me.zero.alpine.listener.Listener;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ChatScreen;
+import net.minecraft.client.util.InputUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,6 +29,7 @@ public abstract class Bedroom {
 	
 	public Bedroom() {
 		INSTANCE = this;
+		Bedroom.EVENTBUS.subscribe(commandListener);
 	}
 
 	public static ModuleManager moduleManager;
@@ -84,8 +91,16 @@ public abstract class Bedroom {
 		settingManager = new SettingManager();
 		printLog("setting system initialized.");
 		
-		saveLoad = new SaveLoad();
-		printLog("config initialized.");
+		//saveLoad = new SaveLoad();
+		//printLog("config initialized.");
 	}
+
+	@EventHandler
+	private final Listener<EventKeyPress> commandListener = new Listener<>(e -> {
+		if(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), CommandManager.prefix.charAt(0)))
+			if (CommandManager.prefix.length() == 1) {
+				MinecraftClient.getInstance().openScreen(new ChatScreen(""));
+			}
+	});
 
 }
