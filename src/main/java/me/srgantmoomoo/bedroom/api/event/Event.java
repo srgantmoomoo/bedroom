@@ -8,7 +8,7 @@ import net.minecraft.client.MinecraftClient;
  * @since 5/16/2021
  */
 
-public class Event extends Cancellable {
+public abstract class Event extends Cancellable {
 	
 	public static Era era = Era.PRE;
 

@@ -30,9 +30,6 @@ public class CommandManager {
 		Bedroom.EVENTBUS.subscribe(listener);
 	}
 	
-	public void register() {
-	}
-	
 	public static void callCommandReturn(String input) {
         String message = input;
         

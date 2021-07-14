@@ -21,7 +21,7 @@ import java.io.File;
  * @since 5/16/2021
  */
 
-public class Bedroom {
+public abstract class Bedroom {
 	public static Bedroom INSTANCE;
 	
 	public Bedroom() {
@@ -68,7 +68,7 @@ public class Bedroom {
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
 
-		commandManager = new CommandManager();
+		//commandManager = new CommandManager();
 		printLog("command system initialized.");
 
 		moduleManager = new ModuleManager();
@@ -77,7 +77,7 @@ public class Bedroom {
 		settingManager = new SettingManager();
 		printLog("setting system initialized.");
 		
-		saveLoad = new SaveLoad();
+		//saveLoad = new SaveLoad();
 		printLog("config initialized.");
 	}
 
