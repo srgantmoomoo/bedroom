@@ -29,7 +29,7 @@ public class CommandManager {
 		//Bedroom.EVENTBUS.subscribe(listener);
 	}
 	
-	public static void callCommandReturn(String input) {
+	/*public static void callCommandReturn(String input) {
         String message = input;
         
         if(!message.startsWith(prefix))
@@ -50,7 +50,7 @@ public class CommandManager {
         		//addChatMessage(TextFormatting.DARK_RED + "command does not exist, use " + TextFormatting.ITALIC + prefix + "help " + TextFormatting.RESET + "" + TextFormatting.DARK_RED + "for help.");
         	}
         }
-    }
+    }*/
 	
 	@EventHandler
 	private final Listener<EventKeyPress> listener = new Listener<>(e -> {
