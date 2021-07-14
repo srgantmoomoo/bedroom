@@ -75,7 +75,7 @@ public class CommandManager {
 	 */
 	@SuppressWarnings("resource")
 	public static void addChatMessage(String message) {
-		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + message;
+		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + message;
 		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
@@ -88,7 +88,7 @@ public class CommandManager {
 	@SuppressWarnings("resource")
 	public static void correctUsageMsg(String name, String syntax) {
 		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
-		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + usage;
+		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + usage;
 		
 		Text textComponentString = new LiteralText(message);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);

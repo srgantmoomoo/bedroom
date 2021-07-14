@@ -25,7 +25,6 @@ public class ModuleManager {
 	public ModuleManager() {
 		Bedroom.EVENTBUS.subscribe(listener);
 		modules = new ArrayList<>();
-		String penis = Bedroom.INSTANCE.modname;
 	}
 
 	public static void onUpdate() {

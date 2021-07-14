@@ -1,6 +1,5 @@
 package me.srgantmoomoo.bedroom;
 
-import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,8 +12,6 @@ import me.srgantmoomoo.bedroom.module.ModuleManager;
 import me.srgantmoomoo.bedroom.module.setting.SettingManager;
 import me.zero.alpine.bus.EventBus;
 import me.zero.alpine.bus.EventManager;
-
-import java.io.File;
 
 /** 
  * @author SrgantMooMoo
@@ -78,7 +75,7 @@ public abstract class Bedroom {
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
 
-		//commandManager = new CommandManager();
+		commandManager = new CommandManager();
 		printLog("command system initialized.");
 
 		moduleManager = new ModuleManager();
@@ -87,7 +84,7 @@ public abstract class Bedroom {
 		settingManager = new SettingManager();
 		printLog("setting system initialized.");
 		
-		//saveLoad = new SaveLoad();
+		saveLoad = new SaveLoad();
 		printLog("config initialized.");
 	}
 

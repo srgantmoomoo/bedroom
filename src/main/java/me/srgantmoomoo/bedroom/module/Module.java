@@ -38,11 +38,12 @@ public abstract class Module implements Listenable {
 		this.category = category;
 		enabled = false;
 	}
-	
+
+	// this by default contains the beach house category since it was originally created for beach house.... but obviously you don't have to use it.
+	//TODO make categories customizable.... and maybe switch the whole system to annotations to make life easier.
 	public enum Category {
-		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous");
+		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous"), BEACHHOUSE("beach house");
 		public String name;
-		public int moduleIndex;
 		
 		Category(String name) {
 			this.name = name;
