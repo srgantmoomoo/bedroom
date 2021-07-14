@@ -27,9 +27,6 @@ public abstract class Bedroom {
 	public Bedroom() {
 		INSTANCE = this;
 	}
-	public String modid = "def";
-	public String modname = "default";
-	public String modversion = "1";
 
 	public static ModuleManager moduleManager;
 	public static SettingManager settingManager;
@@ -54,8 +51,18 @@ public abstract class Bedroom {
 	public void addCommand(Command command) {
 		CommandManager.commands.add(command);
 	}
-	
-	public static void init() {
+
+	public static String modid;
+	public static String modname;
+	public static String modversion;
+
+	public static void setVariables(String id, String name, String version) {
+		modid = id;
+		modname = name;
+		modversion = version;
+	}
+
+	public static void init(String id, String name, String version) {
 		printLog("welcome to bedroom!");
 		printLog("\n" +
                 " __                     __                                       \n" +
@@ -64,7 +71,10 @@ public abstract class Bedroom {
                 " | '/'`\\ \\/ /__\\\\/ /'`\\' | [ `/'`\\]/ .'`\\ \\/ .'`\\ \\[ `.-. .-. |  \n" +
                 " |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
                 "[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
-		
+
+		setVariables(id, name, version);
+		printLog("variables initialized.");
+
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
 
