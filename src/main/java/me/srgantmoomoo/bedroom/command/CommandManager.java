@@ -29,7 +29,7 @@ public class CommandManager {
 		//Bedroom.EVENTBUS.subscribe(listener);
 	}
 	
-	/*public static void callCommandReturn(String input) {
+	public static void callCommandReturn(String input) {
         String message = input;
         
         if(!message.startsWith(prefix))
@@ -47,7 +47,7 @@ public class CommandManager {
         		}
         	}
         	if(!commandFound) {
-        		addChatMessage(TextFormatting.DARK_RED + "command does not exist, use " + TextFormatting.ITALIC + prefix + "help " + TextFormatting.RESET + "" + TextFormatting.DARK_RED + "for help.");
+        		//addChatMessage(TextFormatting.DARK_RED + "command does not exist, use " + TextFormatting.ITALIC + prefix + "help " + TextFormatting.RESET + "" + TextFormatting.DARK_RED + "for help.");
         	}
         }
     }
@@ -73,7 +73,7 @@ public class CommandManager {
 	 * @param message
 	 */
 
-	/*public static void addChatMessage(String message) {
+/*	public static void addChatMessage(String message) {
 		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + message;
 		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
@@ -85,12 +85,12 @@ public class CommandManager {
 	 * @param syntax
 	 */
 
-	/*public static void correctUsageMsg(String name, String syntax) {
+/*	public static void correctUsageMsg(String name, String syntax) {
 		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
 		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + usage;
 		
 		Text textComponentString = new LiteralText(message);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
-	}
-	*/
+	}*/
+
 }
