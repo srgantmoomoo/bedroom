@@ -123,7 +123,7 @@ public class SaveLoad {
 					}
 				}
 			}else if(s.toLowerCase().startsWith("commandprefix:")) {
-				CommandManager.setCommandPrefix(args[1]);
+				//CommandManager.setCommandPrefix(args[1]);
 			}
 		}
 	}
