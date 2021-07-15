@@ -81,7 +81,7 @@ public abstract class Bedroom {
 		eventProcessor = new EventProcessor();
 		printLog("event system initialized.");
 
-		commandManager = new CommandManager();
+		commandManager.init();
 		printLog("command system initialized.");
 
 		moduleManager = new ModuleManager();

@@ -25,7 +25,7 @@ public class CommandManager {
 	public static List<Command> commands;
 	public static String prefix = ",";
 
-	public CommandManager() {
+	public void init() {
 		Bedroom.EVENTBUS.subscribe(listener);
 		commands = new ArrayList<Command>();
 	}
