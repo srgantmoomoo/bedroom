@@ -83,8 +83,8 @@ public abstract class Module implements Listenable {
 	public void setKey(int key) {
 		this.keyCode.code = key;
 		
-		 if(Bedroom.saveLoad != null) {
-				Bedroom.saveLoad.save();
+		 if(Bedroom.INSTANCE.saveLoad != null) {
+				Bedroom.INSTANCE.saveLoad.save();
 		 }
 	} 
 	
@@ -96,8 +96,8 @@ public abstract class Module implements Listenable {
 			disable();
 		}
 		
-		if(Bedroom.saveLoad != null) {
-			Bedroom.saveLoad.save();
+		if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
 		}
 	}
 	
@@ -108,13 +108,13 @@ public abstract class Module implements Listenable {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 		if(enabled) {
-			Bedroom.EVENTBUS.subscribe(this);
+			Bedroom.INSTANCE.EVENTBUS.subscribe(this);
 		}else {
-			Bedroom.EVENTBUS.unsubscribe(this);
+			Bedroom.INSTANCE.EVENTBUS.unsubscribe(this);
 		}
 		
-		if(Bedroom.saveLoad != null) {
-			Bedroom.saveLoad.save();
+		if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
 		}
 	}
 	

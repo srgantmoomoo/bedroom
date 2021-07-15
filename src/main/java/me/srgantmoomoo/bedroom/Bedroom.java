@@ -1,11 +1,5 @@
 package me.srgantmoomoo.bedroom;
 
-import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
-import me.zero.alpine.listener.EventHandler;
-import me.zero.alpine.listener.Listener;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ChatScreen;
-import net.minecraft.client.util.InputUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,26 +18,26 @@ import me.zero.alpine.bus.EventManager;
  * @since 5/16/2021
  */
 
-public abstract class Bedroom {
+public final class Bedroom {
 	public static Bedroom INSTANCE;
 	
 	public Bedroom() {
 		INSTANCE = this;
 	}
 
-	public static ModuleManager moduleManager;
-	public static SettingManager settingManager;
-	public static SaveLoad saveLoad;
-	public static EventProcessor eventProcessor;
-	public static CommandManager commandManager;
+	public ModuleManager moduleManager;
+	public SettingManager settingManager;
+	public SaveLoad saveLoad;
+	public EventProcessor eventProcessor;
+	public CommandManager commandManager;
 	
-	public static final Logger LOGGER = LogManager.getLogger("bedroom");
-	public static EventBus EVENTBUS = new EventManager();
+	public final Logger LOGGER = LogManager.getLogger("bedroom");
+	public EventBus EVENTBUS = new EventManager();
 
-	public static final Object syncronize = new Object();
-	public static void printLog(String text) {
+	public final Object syncronize = new Object();
+	public void printLog(String text) {
 		synchronized (syncronize) {
-			LOGGER.info(text);
+			this.LOGGER.info(text);
 		}
 	}
 
@@ -55,17 +49,17 @@ public abstract class Bedroom {
 		CommandManager.commands.add(command);
 	}
 
-	public static String modid;
-	public static String modname;
-	public static String modversion;
+	public String modid;
+	public String modname;
+	public String modversion;
 
-	public static void setVariables(String id, String name, String version) {
-		modid = id;
-		modname = name;
-		modversion = version;
+	public void setVariables(String id, String name, String version) {
+		this.modid = id;
+		this.modname = name;
+		this.modversion = version;
 	}
 
-	public static void init(String id, String name, String version) {
+	public void init(String id, String name, String version) {
 		printLog("welcome to bedroom!");
 		printLog("\n" +
                 " __                     __                                       \n" +
@@ -78,19 +72,22 @@ public abstract class Bedroom {
 		setVariables(id, name, version);
 		printLog("variables initialized.");
 
-		eventProcessor = new EventProcessor();
+		this.eventProcessor = new EventProcessor();
+		EVENTBUS.subscribe(eventProcessor);
 		printLog("event system initialized.");
 
-		commandManager.init();
+		this.commandManager = new CommandManager();
+		EVENTBUS.subscribe(commandManager);
 		printLog("command system initialized.");
 
-		moduleManager = new ModuleManager();
+		this.moduleManager = new ModuleManager();
+		EVENTBUS.subscribe(moduleManager);
 		printLog("module system initialized.");
 
-		settingManager = new SettingManager();
+		this.settingManager = new SettingManager();
 		printLog("setting system initialized.");
 		
-		//saveLoad = new SaveLoad();
+		//this.saveLoad = new SaveLoad();
 		//printLog("config initialized.");
 	}
 

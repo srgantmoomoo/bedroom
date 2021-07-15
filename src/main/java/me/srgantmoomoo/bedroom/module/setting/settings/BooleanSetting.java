@@ -25,16 +25,16 @@ public class BooleanSetting extends Setting {
 	public void setEnabled(boolean enabled) {
 	    this.enabled = enabled;
 	    
-	    if(Bedroom.saveLoad != null) {
-			Bedroom.saveLoad.save();
+	    if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
 	    }
 	}
 	
 	public void toggle() {
 	    this.enabled = !this.enabled;
 	    
-	    if(Bedroom.saveLoad != null) {
-			Bedroom.saveLoad.save();
+	    if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
 	    }
 	}
 }

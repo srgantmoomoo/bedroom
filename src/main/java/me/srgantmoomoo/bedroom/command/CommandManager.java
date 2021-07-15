@@ -8,6 +8,7 @@ import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.api.util.TextFormatting;
 import me.zero.alpine.listener.EventHandler;
+import me.zero.alpine.listener.Listenable;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ChatScreen;
@@ -20,13 +21,13 @@ import net.minecraft.text.Text;
  * @since 5/16/2021
  */
 
-public class CommandManager {
+public class CommandManager implements Listenable {
 
 	public static List<Command> commands;
 	public static String prefix = ",";
 
-	public void init() {
-		Bedroom.EVENTBUS.subscribe(listener);
+	public CommandManager() {
+		Bedroom.INSTANCE.EVENTBUS.subscribe(listener);
 		commands = new ArrayList<Command>();
 	}
 
@@ -64,8 +65,8 @@ public class CommandManager {
 	public static void setCommandPrefix(String pre) {
 		prefix = pre;
 
-		if(Bedroom.saveLoad != null) {
-			Bedroom.saveLoad.save();
+		if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
 		}
 	}
 
@@ -75,7 +76,7 @@ public class CommandManager {
 	 */
 
 	public static void addChatMessage(String message) {
-		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + message;
+		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + message;
 		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
@@ -88,7 +89,7 @@ public class CommandManager {
 
 	public static void correctUsageMsg(String name, String syntax) {
 		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
-		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.modname + TextFormatting.GRAY + ": " + usage;
+		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + usage;
 
 		Text textComponentString = new LiteralText(message);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);

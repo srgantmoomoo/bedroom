@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.srgantmoomoo.bedroom.command.CommandManager;
+import me.zero.alpine.listener.Listenable;
 import net.minecraft.client.gui.screen.ChatScreen;
 import org.lwjgl.glfw.GLFW;
 
@@ -20,12 +21,11 @@ import net.minecraft.client.util.InputUtil;
  * @since 5/16/2021
  */
 
-public class ModuleManager {
+public class ModuleManager implements Listenable {
 	
 	public static ArrayList<Module> modules;
 	
 	public ModuleManager() {
-		Bedroom.EVENTBUS.subscribe(listener);
 		modules = new ArrayList<>();
 	}
 

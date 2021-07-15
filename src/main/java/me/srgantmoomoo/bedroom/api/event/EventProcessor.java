@@ -19,7 +19,6 @@ public class EventProcessor implements Listenable {
 
 	public EventProcessor() {
 		instance = this;
-		Bedroom.EVENTBUS.subscribe(this);
 	}
 	
 	@EventHandler
