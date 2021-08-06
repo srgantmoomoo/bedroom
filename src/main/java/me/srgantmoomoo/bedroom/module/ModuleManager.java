@@ -1,36 +1,36 @@
 package me.srgantmoomoo.bedroom.module;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import me.srgantmoomoo.bedroom.command.CommandManager;
-import me.zero.alpine.listener.Listenable;
-import net.minecraft.client.gui.screen.ChatScreen;
-import org.lwjgl.glfw.GLFW;
-
 import me.srgantmoomoo.bedroom.Bedroom;
+import me.srgantmoomoo.bedroom.api.event.Event;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.module.Module.Category;
-import me.zero.alpine.listener.EventHandler;
-import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.InputUtil;
+import org.lwjgl.glfw.GLFW;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /** 
  * @author SrgantMooMoo
  * @since 5/16/2021
  */
 
-public class ModuleManager implements Listenable {
-	
+public class ModuleManager {
+
 	public static ArrayList<Module> modules;
 	
 	public ModuleManager() {
 		modules = new ArrayList<>();
 	}
 
-	public static void onUpdate() {
-		modules.stream().filter(Module::isEnabled).forEach(Module::onUpdate);
+	public static void onEvent(Event e) {
+		for(Module m : Bedroom.moduleManager.getModules()){
+			if(!m.isEnabled())
+				continue;
+
+			m.onEvent(e);;
+		}
 	}
 
 	public boolean isModuleEnabled(String name) {
@@ -69,12 +69,13 @@ public class ModuleManager implements Listenable {
 		} return modules;
 	}
 
-	@EventHandler
-	private final Listener<EventKeyPress> listener = new Listener<>(e -> {
+	// for key binds (called in MixinKeyboard).
+	public void keyPress(int key, int scancode) {
+		EventKeyPress e = new EventKeyPress(key, scancode);
 		if (InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), GLFW.GLFW_KEY_F3))
 			return;
 
 		modules.stream().filter(m -> m.getKey() == e.getKey()).forEach(Module::toggle);
-	});
+	}
 
 }

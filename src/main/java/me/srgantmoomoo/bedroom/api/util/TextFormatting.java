@@ -2,13 +2,13 @@ package me.srgantmoomoo.bedroom.api.util;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
-
-import org.jetbrains.annotations.Nullable;
 
 // stolen old src code from minecwaft 1.12.2, using forges mcp.
 

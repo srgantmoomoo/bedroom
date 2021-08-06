@@ -1,11 +1,11 @@
 package me.srgantmoomoo.bedroom.module.setting.settings;
 
-import java.util.Arrays;
-import java.util.List;
-
 import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.setting.Setting;
+
+import java.util.Arrays;
+import java.util.List;
 
 /** the first mode is the default mode, it has to be declared already as one of the following modes, you can have as many modes as you'd like.
  * @author SrgantMooMoo
@@ -31,8 +31,8 @@ public class ModeSetting extends Setting {
 	public void setMode(String mode) {
 		  this.index = this.modes.indexOf(mode);
 		  
-		  if(Bedroom.INSTANCE.saveLoad != null) {
-				Bedroom.INSTANCE.saveLoad.save();
+		  if(Bedroom.saveLoad != null) {
+				Bedroom.saveLoad.save();
 		    }
 	}
 	  

@@ -1,21 +1,56 @@
 package me.srgantmoomoo.bedroom.api.event;
 
-import me.zero.alpine.event.type.Cancellable;
-import net.minecraft.client.MinecraftClient;
+public class Event<T> {
 
-/** 
- * @author SrgantMooMoo
- * @since 5/16/2021
- */
+    public boolean cancelled;
+    public Type type;
+    public Direction direction;
 
-public abstract class Event extends Cancellable {
-	
-	public static Era era = Era.PRE;
-
-    public static Float partialTicks = MinecraftClient.getInstance().getTickDelta();
-
-    public enum Era {
-        PRE, POST
+    public boolean isCancelled() {
+        return cancelled;
+    }
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
+    }
+    public Type getType() {
+        return type;
+    }
+    public void setType(Type type) {
+        this.type = type;
+    }
+    public Direction getDirection() {
+        return direction;
+    }
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 
+    public boolean isPre() {
+        if(type == null)
+            return false;
+
+        return type == Type.PRE;
+    }
+
+    public boolean isPost() {
+        if(type == null)
+            return false;
+
+        return type == Type.POST;
+    }
+
+    public boolean isIncoming() {
+        if(direction == null)
+            return false;
+
+        return direction == Direction.INCOMING;
+    }
+
+    public boolean isOutgoing() {
+        if(direction == null)
+            return false;
+
+        return direction == Direction.OUTGOING;
+
+    }
 }

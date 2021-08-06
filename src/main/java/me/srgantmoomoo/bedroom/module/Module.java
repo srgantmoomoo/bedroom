@@ -1,22 +1,22 @@
 package me.srgantmoomoo.bedroom.module;
 
+import me.srgantmoomoo.bedroom.Bedroom;
+import me.srgantmoomoo.bedroom.api.event.Event;
+import me.srgantmoomoo.bedroom.module.setting.Setting;
+import me.srgantmoomoo.bedroom.module.setting.settings.KeybindSetting;
+import net.minecraft.client.MinecraftClient;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-
-import me.srgantmoomoo.bedroom.Bedroom;
-import me.srgantmoomoo.bedroom.module.setting.Setting;
-import me.srgantmoomoo.bedroom.module.setting.settings.KeybindSetting;
-import me.zero.alpine.listener.Listenable;
-import net.minecraft.client.MinecraftClient;
 
 /** 
  * @author SrgantMooMoo
  * @since 5/16/2021
  */
 
-public abstract class Module implements Listenable {
+public abstract class Module {
 
 	public static MinecraftClient mc = MinecraftClient.getInstance();
 	public static ArrayList<Module> modules;
@@ -39,7 +39,6 @@ public abstract class Module implements Listenable {
 		enabled = false;
 	}
 
-	// this by default contains the beach house category since it was originally created for beach house.... but obviously you don't have to use it.
 	//TODO make categories customizable.... and maybe switch the whole system to annotations to make life easier.
 	public enum Category {
 		PLAYER("player"), RENDER("render"), COMBAT("combat"), MOVEMENT("movement"), MISCELLANEOUS("miscellaneous"), BEACHHOUSE("beach house");
@@ -83,8 +82,8 @@ public abstract class Module implements Listenable {
 	public void setKey(int key) {
 		this.keyCode.code = key;
 		
-		 if(Bedroom.INSTANCE.saveLoad != null) {
-				Bedroom.INSTANCE.saveLoad.save();
+		 if(Bedroom.saveLoad != null) {
+				Bedroom.saveLoad.save();
 		 }
 	} 
 	
@@ -96,8 +95,8 @@ public abstract class Module implements Listenable {
 			disable();
 		}
 		
-		if(Bedroom.INSTANCE.saveLoad != null) {
-			Bedroom.INSTANCE.saveLoad.save();
+		if(Bedroom.saveLoad != null) {
+			Bedroom.saveLoad.save();
 		}
 	}
 	
@@ -107,17 +106,17 @@ public abstract class Module implements Listenable {
 	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-		if(enabled) {
+		/*if(enabled) {
 			Bedroom.INSTANCE.EVENTBUS.subscribe(this);
 		}else {
 			Bedroom.INSTANCE.EVENTBUS.unsubscribe(this);
-		}
+		}*/
 		
-		if(Bedroom.INSTANCE.saveLoad != null) {
-			Bedroom.INSTANCE.saveLoad.save();
+		if(Bedroom.saveLoad != null) {
+			Bedroom.saveLoad.save();
 		}
 	}
-	
+
 	public void enable() {
 		onEnable();
 		setEnabled(true);
@@ -135,9 +134,9 @@ public abstract class Module implements Listenable {
 	public void onDisable() {
 		
 	}
-	
-	public void onUpdate() {
-		
+
+	public void onEvent(Event e) {
+
 	}
 
 }

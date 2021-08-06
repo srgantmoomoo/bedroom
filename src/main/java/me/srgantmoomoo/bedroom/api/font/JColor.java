@@ -1,8 +1,6 @@
 package me.srgantmoomoo.bedroom.api.font;
 
-import java.awt.Color;
-
-import com.mojang.blaze3d.platform.GlStateManager;
+import java.awt.*;
 
 public class JColor extends Color {
 	
@@ -49,6 +47,6 @@ public class JColor extends Color {
 	}
 	
 	public void glColor() {
-		GlStateManager.color4f(getRed() / 255.0f, getGreen() / 255.0f, getBlue() / 255.0f, getAlpha() / 255.0f);
+		//GlStateManager.color4f(getRed() / 255.0f, getGreen() / 255.0f, getBlue() / 255.0f, getAlpha() / 255.0f);
 	}
 }

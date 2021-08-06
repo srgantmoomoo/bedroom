@@ -1,13 +1,5 @@
 package me.srgantmoomoo.bedroom.api.config;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.command.CommandManager;
 import me.srgantmoomoo.bedroom.module.Module;
@@ -18,6 +10,9 @@ import me.srgantmoomoo.bedroom.module.setting.settings.ModeSetting;
 import me.srgantmoomoo.bedroom.module.setting.settings.NumberSetting;
 import net.minecraft.client.MinecraftClient;
 
+import java.io.*;
+import java.util.ArrayList;
+
 /** 
  * @author SrgantMooMoo
  * @since 5/16/2021
@@ -26,10 +21,9 @@ import net.minecraft.client.MinecraftClient;
 public class SaveLoad {
 	private File dir;
 	private File dataFile;
-	
-	@SuppressWarnings("resource")
+
 	public SaveLoad() {;
-		dir = new File(MinecraftClient.getInstance().runDirectory, Bedroom.INSTANCE.modname);
+		dir = new File(MinecraftClient.getInstance().runDirectory, Bedroom.modname);
 		if(!dir.exists()) {
 			dir.mkdir();
 		}
@@ -101,15 +95,15 @@ public class SaveLoad {
 		for(String s : lines) {
 			String[] args = s.split(":");
 			if(s.toLowerCase().startsWith("mod:")) {
-				Module m = Bedroom.INSTANCE.moduleManager.getModule(args[1]);
+				Module m = Bedroom.moduleManager.getModule(args[1]);
 				if(m != null) {
 					m.setEnabled(Boolean.parseBoolean(args[2]));
 					m.setKey(Integer.parseInt(args[3]));
 				}
 			}else if(s.toLowerCase().startsWith("set:")) {
-				Module m = Bedroom.INSTANCE.moduleManager.getModule(args[1]);
+				Module m = Bedroom.moduleManager.getModule(args[1]);
 				if(m != null) {
-					Setting setting = Bedroom.INSTANCE.settingManager.getSettingByName(m, args[2]);
+					Setting setting = Bedroom.settingManager.getSettingByName(m, args[2]);
 					if(setting != null) {
 						if(setting instanceof BooleanSetting) {
 							((BooleanSetting)setting).setEnabled(Boolean.parseBoolean(args[3]));
@@ -123,7 +117,7 @@ public class SaveLoad {
 					}
 				}
 			}else if(s.toLowerCase().startsWith("commandprefix:")) {
-				//CommandManager.setCommandPrefix(args[1]);
+				CommandManager.setCommandPrefix(args[1]);
 			}
 		}
 	}
