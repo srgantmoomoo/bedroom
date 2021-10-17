@@ -86,4 +86,3 @@ bedroom uses [Alpine 1.9](https://github.com/ZeroMemes/Alpine) for it's event sy
 please respect the license in this repo!! and thank you to anyone who uses this :) <br>
 also please check the projects that make this possible... <br>
 [Fabric](https://github.com/FabricMC) <br>
-[Alpine 1.9](https://github.com/ZeroMemes/Alpine) <br>
