@@ -1,6 +1,5 @@
 package me.srgantmoomoo.bedroom.module;
 
-import me.srgantmoomoo.bedroom.Bedroom;
 import me.srgantmoomoo.bedroom.api.event.Event;
 import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.module.Module.Category;
@@ -10,6 +9,7 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /** 
  * @author SrgantMooMoo
@@ -25,35 +25,19 @@ public class ModuleManager {
 	}
 
 	public static void onEvent(Event e) {
-		for(Module m : Bedroom.moduleManager.getModules()){
-			if(!m.isEnabled())
-				continue;
-
-			m.onEvent(e);;
-		}
+		modules.stream().filter(Module::isEnabled).forEach(module -> module.onEvent(e));
 	}
 
 	public boolean isModuleEnabled(String name) {
-		Module m = modules.stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
-		return m.isEnabled();
+		return getModule(name).isEnabled();
 	}
 
 	public Module getModule(String name) {
-		for (Module m : ModuleManager.modules) {
-			if(m.getName().equalsIgnoreCase(name)) {
-				return m;
-			}
-		}
-		return null;
+		return modules.stream().filter(module -> module.name.equalsIgnoreCase(name)).findAny().orElse(null);
 	}
 
 	public Module getModuleByID(String moduleID) {
-		for(Module m : ModuleManager.modules) {
-			if(m.getID().equalsIgnoreCase(moduleID)) {
-				return m;
-			}
-		}
-		return null;
+		return modules.stream().filter(module -> module.getID().equalsIgnoreCase(moduleID)).findAny().orElse(null);
 	}
 
 	public ArrayList<Module> getModules() {
@@ -61,12 +45,7 @@ public class ModuleManager {
 	}
 
 	public List<Module> getModulesByCategory(Category c) {
-		List<Module> modules = new ArrayList<Module>();
-
-		for(Module m : ModuleManager.modules) {
-				if(m.getCategory() == c)
-					modules.add(m);
-		} return modules;
+		return modules.stream().filter(module -> module.getCategory() == c).collect(Collectors.toList());
 	}
 
 	// for key binds (called in MixinKeyboard).
