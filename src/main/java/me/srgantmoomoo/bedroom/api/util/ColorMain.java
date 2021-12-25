@@ -4,6 +4,7 @@ import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.setting.settings.ModeSetting;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ColorMain extends Module {
     public static final Module ColorMain = null;
@@ -15,26 +16,8 @@ public class ColorMain extends Module {
     }
 
     public void setup() {
-        ArrayList<String> tab = new ArrayList<>();
-        tab.add("Black");
-        tab.add("Dark Green");
-        tab.add("Dark Red");
-        tab.add("Gold");
-        tab.add("Dark Gray");
-        tab.add("Green");
-        tab.add("Red");
-        tab.add("Yellow");
-        tab.add("Dark Blue");
-        tab.add("Dark Aqua");
-        tab.add("Dark Purple");
-        tab.add("Gray");
-        tab.add("Blue");
-        tab.add("Aqua");
-        tab.add("Light Purple");
-        tab.add("White");
-        ArrayList<String> models=new ArrayList<>();
-        models.add("RGB");
-        models.add("HSB");
+        ArrayList<String> tab = new ArrayList<>(Arrays.asList("Black", "Dark Green", "Dark Red", "Gold", "Dark Gray", "Green", "Red", "Yellow", "Dark Blue", "Dark Aqua", "Dark Purple", "Gray", "Blue", "Aqua", "Light Purple", "White"));
+        ArrayList<String> models = new ArrayList<>(Arrays.asList("RGB", "HSB"));
     }
 
     public void onEnable() {
