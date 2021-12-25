@@ -1,9 +1,9 @@
 package me.srgantmoomoo.bedroom.module.setting;
 
 import me.srgantmoomoo.bedroom.module.Module;
-import me.srgantmoomoo.bedroom.module.ModuleManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /** 
  * @author SrgantMooMoo
@@ -26,28 +26,11 @@ public class SettingManager {
 		return this.settings;
 	}
 	
-	public ArrayList<Setting> getSettingsByMod(Module mod) {
-		ArrayList<Setting> out = new ArrayList<Setting>();
-		for(Setting s : getSettings()) {
-			if(s.parent.equals(mod)) {
-				out.add(s);
-			}
-		}
-		if(out.isEmpty()) {
-			return null;
-		}
-		return out;
+	public List<Setting> getSettingsByMod(Module mod) {
+		return mod.settings;
 	}
 	
 	public Setting getSettingByName(Module mod, String name) {
-		for (Module m : ModuleManager.modules) {
-			for (Setting set : m.settings) {
-				if (set.name.equalsIgnoreCase(name) && set.parent == mod) {
-					return set;
-				}
-			}
-		}
-		System.err.println("[bedroom] Error Setting NOT found: '" + name +"'!");
-		return null;
+		return mod.settings.stream().filter(setting -> setting.name.equalsIgnoreCase(name)).findAny().orElse(null);
 	}
 }
