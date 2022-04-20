@@ -1,31 +1,32 @@
 package me.srgantmoomoo.bedroom.module;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import me.srgantmoomoo.bedroom.Bedroom;
-import me.srgantmoomoo.bedroom.api.event.Event;
-import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
+import me.srgantmoomoo.bedroom.event.Event;
+import me.srgantmoomoo.bedroom.event.events.EventKeyPress;
 import me.srgantmoomoo.bedroom.module.Module.Category;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/** 
+/**
  * @author SrgantMooMoo
  * @since 5/16/2021
  */
 
 public class ModuleManager {
 
-	public static ArrayList<Module> modules;
-	
+	public ArrayList<Module> modules;
+
 	public ModuleManager() {
 		modules = new ArrayList<>();
 	}
 
-	public static void onEvent(Event e) {
-		for(Module m : Bedroom.moduleManager.getModules()){
+	@SuppressWarnings("rawtypes")
+	public void onEvent(Event e) {
+		for(Module m : modules) {
 			if(!m.isEnabled())
 				continue;
 
@@ -39,7 +40,7 @@ public class ModuleManager {
 	}
 
 	public Module getModule(String name) {
-		for (Module m : ModuleManager.modules) {
+		for (Module m : this.modules) {
 			if(m.getName().equalsIgnoreCase(name)) {
 				return m;
 			}
@@ -47,8 +48,9 @@ public class ModuleManager {
 		return null;
 	}
 
+
 	public Module getModuleByID(String moduleID) {
-		for(Module m : ModuleManager.modules) {
+		for(Module m : modules) {
 			if(m.getID().equalsIgnoreCase(moduleID)) {
 				return m;
 			}
@@ -60,12 +62,21 @@ public class ModuleManager {
 		return modules;
 	}
 
+	public List<Module> getEnabledModules() {
+		List<Module> modules = new ArrayList<Module>();
+
+		for(Module m : modules) {
+			if(m.isEnabled())
+				modules.add(m);
+		} return modules;
+	}
+
 	public List<Module> getModulesByCategory(Category c) {
 		List<Module> modules = new ArrayList<Module>();
 
-		for(Module m : ModuleManager.modules) {
-				if(m.getCategory() == c)
-					modules.add(m);
+		for(Module m : modules) {
+			if(m.getCategory() == c)
+				modules.add(m);
 		} return modules;
 	}
 

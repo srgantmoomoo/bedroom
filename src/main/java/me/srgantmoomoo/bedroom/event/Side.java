@@ -1,4 +1,4 @@
-package me.srgantmoomoo.bedroom.api.event;
+package me.srgantmoomoo.bedroom.event;
 
 public enum Side
 {
