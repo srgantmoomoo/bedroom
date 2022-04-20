@@ -50,12 +50,6 @@ public final class Bedroom {
 	public static String modname;
 	public static String modversion;
 
-	public void setVariables(String id, String name, String version) {
-		modid = id;
-		modname = name;
-		modversion = version;
-	}
-
 	public void init(String id, String name, String version) {
 		printLog("welcome to bedroom!");
 		printLog("\n" +
@@ -66,7 +60,10 @@ public final class Bedroom {
 				" |  \\__/ || \\__.,| \\__/  |  | |    | \\__. || \\__. | | | | | | |  \n" +
 				"[__;.__.'  '.__.' '.__.;__][___]    '.__.'  '.__.' [___||__||__] \n");
 
-		setVariables(id, name, version);
+		modid = id;
+		modname = name;
+		modversion = version;
+
 		printLog("variables initialized.");
 
 		commandManager = new CommandManager();
