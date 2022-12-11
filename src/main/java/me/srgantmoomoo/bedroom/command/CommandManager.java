@@ -5,94 +5,79 @@ import java.util.Arrays;
 import java.util.List;
 
 import me.srgantmoomoo.bedroom.Bedroom;
+import me.srgantmoomoo.bedroom.api.event.events.EventKeyPress;
+import me.srgantmoomoo.bedroom.api.util.TextFormatting;
+import me.zero.alpine.listener.EventHandler;
+import me.zero.alpine.listener.Listenable;
+import me.zero.alpine.listener.Listener;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 
 /**
  * @author SrgantMooMoo
  * @since 5/16/2021
  */
 
-public class CommandManager {
+public class CommandManager implements Listenable {
 
-	public List<Command> commands;
-	public String prefix = ",";
+	public static List<Command> commands;
+	public static String prefix = ",";
 
 	public CommandManager() {
+		Bedroom.INSTANCE.EVENTBUS.subscribe(listener);
 		commands = new ArrayList<Command>();
 	}
 
-	public void callCommandReturn(String input) {
-		String message = input;
+	public static void callCommandReturn(String input) {
+        String message = input;
 
-		if(!message.startsWith(prefix))
-			return;
+        if(!message.startsWith(prefix))
+        	return;
 
-		message = message.substring(prefix.length());
-		if(message.split(" ").length > 0) {
-			boolean commandFound = false;
-			String commandName = message.split(" ")[0];
-			for(Command c : commands) {
-				if(c.aliases.contains(commandName) || c.name.equalsIgnoreCase(commandName)) {
-					c.onCommand(Arrays.copyOfRange(message.split(" "), 1, message.split(" ").length), message);
-					commandFound = true;
-					break;
-				}
-			}
-			if(!commandFound) {
-				addChatMessage(Formatting.DARK_RED + "command does not exist, use " + Formatting.ITALIC + prefix + "help " + Formatting.RESET + "" + Formatting.DARK_RED + "for help.");
-			}
-		}
-	}
+        message = message.substring(prefix.length());
+        if(message.split(" ").length > 0) {
+        	boolean commandFound = false;
+        	String commandName = message.split(" ")[0];
+        	for(Command c : commands) {
+        		if(c.aliases.contains(commandName) || c.name.equalsIgnoreCase(commandName)) {
+	        		c.onCommand(Arrays.copyOfRange(message.split(" "), 1, message.split(" ").length), message);
+	        		commandFound = true;
+	        		break;
+        		}
+        	}
+        	if(!commandFound) {
+        		addChatMessage(TextFormatting.DARK_RED + "command does not exist, use " + TextFormatting.ITALIC + prefix + "help " + TextFormatting.RESET + "" + TextFormatting.DARK_RED + "for help.");
+        	}
+        }
+    }
 
-	// opens chat when prefix is clicked (called in MixinKeyboard).
-	public void openChatScreen() {
+	@EventHandler
+	private final Listener<EventKeyPress> listener = new Listener<>(e -> {
 		if(InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), prefix.charAt(0)))
-			if (prefix.length() == 1) {
-				MinecraftClient.getInstance().openScreen(new ChatScreen(""));
-			}
-	}
+		if (prefix.length() == 1) {
+                MinecraftClient.getInstance().openScreen(new ChatScreen(""));
+            }
+	});
 
-	public void setCommandPrefix(String pre) {
-		this.prefix = pre;
+	public static void setCommandPrefix(String pre) {
+		prefix = pre;
 
-		if (Bedroom.INSTANCE.save != null) {
-			try {
-				Bedroom.INSTANCE.save.savePrefix();
-			} catch (Exception e) {}
+		if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
 		}
-	}
-
-	public Command getCommand(String name) {
-		for (Command c : this.commands) {
-			if(c.getName().equalsIgnoreCase(name)) {
-				return c;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * send a client side chat message without a prefix to the minecraft chat.
-	 * @param message
-	 */
-	public void addCustomChatMessage(String message) {
-		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText(message));
 	}
 
 	/**
 	 * send a client side chat message with a prefix to the minecraft chat.
 	 * @param message
 	 */
-	@SuppressWarnings("resource")
-	public void addChatMessage(String message) {
-		String messageWithPre = Formatting.AQUA + "@" + Formatting.ITALIC + Bedroom.modname + Formatting.GRAY + ": " + message;
-		Text textComponentString = new LiteralText(messageWithPre);
 
+	public static void addChatMessage(String message) {
+		String messageWithPre = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + message;
+		Text textComponentString = new LiteralText(messageWithPre);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
 
@@ -101,12 +86,12 @@ public class CommandManager {
 	 * @param name
 	 * @param syntax
 	 */
-	@SuppressWarnings("resource")
-	public void correctUsageMsg(String name, String syntax) {
-		String usage = Formatting.RED + "correct usage of " + name + " command -> " + Formatting.GRAY + prefix + syntax;
-		String message = Formatting.AQUA + "@" + Formatting.ITALIC + Bedroom.modname + Formatting.GRAY + ": " + usage;
-		Text textComponentString = new LiteralText(message);
 
+	public static void correctUsageMsg(String name, String syntax) {
+		String usage = TextFormatting.RED + "correct usage of " + name + " command -> " + TextFormatting.GRAY + prefix + syntax;
+		String message = TextFormatting.AQUA + "@" + TextFormatting.ITALIC + Bedroom.INSTANCE.modname + TextFormatting.GRAY + ": " + usage;
+
+		Text textComponentString = new LiteralText(message);
 		MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(textComponentString);
 	}
 

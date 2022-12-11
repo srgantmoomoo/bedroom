@@ -1,7 +1,6 @@
 package me.srgantmoomoo.bedroom.module.setting.settings;
 
-import me.srgantmoomoo.bedroom.Bedroom;
-import me.srgantmoomoo.bedroom.util.JColor;
+import me.srgantmoomoo.bedroom.api.font.JColor;
 import me.srgantmoomoo.bedroom.module.Module;
 import me.srgantmoomoo.bedroom.module.setting.Setting;
 
@@ -15,7 +14,7 @@ public class ColorSetting extends Setting {
 		this.parent = parent;
 		this.value = value;
 	}
-
+	
 	public JColor getValue() {
 		if (rainbow) {
 			return getRainbow(0, this.getColor().getAlpha());
@@ -28,23 +27,10 @@ public class ColorSetting extends Setting {
 		return new JColor(color.getRed(), color.getBlue(), color.getGreen(), alpha);
 	}
 
-	public boolean getRainbow() {
-		return this.rainbow;
-	}
-
-	public void setRainbow(boolean rainbow) {
-		this.rainbow = rainbow;
-	}
 
 	public void setValue (boolean rainbow, final JColor value) {
 		this.rainbow = rainbow;
 		this.value = value;
-
-		if(Bedroom.INSTANCE.save != null) {
-			try {
-				Bedroom.INSTANCE.save.saveSettings();
-			} catch (Exception e) {}
-		}
 	}
 
 	public long toInteger() {
@@ -54,7 +40,7 @@ public class ColorSetting extends Setting {
 	public void fromInteger (long number) {
 		this.value = new JColor(Math.toIntExact(number & 0xFFFFFFFF),true);
 	}
-
+	
 	public JColor getColor() {
 		return this.value;
 	}

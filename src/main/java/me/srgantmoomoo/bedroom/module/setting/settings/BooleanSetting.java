@@ -11,28 +11,30 @@ import me.srgantmoomoo.bedroom.module.setting.Setting;
 
 public class BooleanSetting extends Setting {
 	public boolean enabled;
-
+	  
 	public BooleanSetting(String name, Module parent, boolean enabled) {
-		this.name = name;
-		this.parent = parent;
-		this.enabled = enabled;
+	    this.name = name;
+	    this.parent = parent;
+	    this.enabled = enabled;
 	}
-
+	  
 	public boolean isEnabled() {
-		return this.enabled;
+	    return this.enabled;
 	}
-
+	  
 	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-
-		if(Bedroom.INSTANCE.save != null) {
-			try {
-				Bedroom.INSTANCE.save.saveSettings();
-			} catch (Exception e) {}
-		}
+	    this.enabled = enabled;
+	    
+	    if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
+	    }
 	}
-
+	
 	public void toggle() {
-		setEnabled(!enabled);
+	    this.enabled = !this.enabled;
+	    
+	    if(Bedroom.INSTANCE.saveLoad != null) {
+			Bedroom.INSTANCE.saveLoad.save();
+	    }
 	}
 }
