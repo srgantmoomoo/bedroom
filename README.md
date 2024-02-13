@@ -1,5 +1,9 @@
 ![dddddd](https://user-images.githubusercontent.com/69589624/109410126-1623c480-7966-11eb-9bd4-56984a88a6aa.PNG)
-                                                                 
+
+## this is now archived
+bedroom is now archived, it'll never be finished and i will never work on it again.
+
+# bedroom
 bedroom is a latest version fabric client api for minecraft. this was made to serve as the base for beach house, i'm just making it public so others can use it and learn from it.<br>
 <br>
 bedroom is intended for use as a latest version fabric base for minecraft anarchy clients, it can serve as a good starting tool for anyone to make the client they want.
